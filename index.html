@@ -1,0 +1,979 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>
+      
+      
+        Magento Search Extension Powered by Algolia
+      
+  </title>
+  <meta name="description" content="Power your Magento store search with Algolia. The fastest way to increase conversions on your site with instant search, autocomplete, and real time results.">
+
+  <link rel="stylesheet" media="screen" href="//fonts.googleapis.com/css?family=Raleway:300,800" />
+  <link rel="stylesheet" media="screen" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+  <link rel="stylesheet" media="screen" href="/magento/css/main.css" />
+  <link rel="stylesheet" media="screen" href="//cdn.jsdelivr.net/fontawesome/4.6.0/css/font-awesome.min.css" />
+
+  <!--[if IE]><link rel="shortcut icon" href="../img/favicon.png"><![endif]-->
+  <link rel="icon" href="/magento/img/favicon.png">
+
+</head>
+
+<body>
+  <!-- Start community header -->
+    <nav class='algc-navigation'>
+      <div class='algc-navigation__container'>
+        <div class='algc-mainmenu'>
+          <ul class='algc-navigation__brands'>
+            <li class='algc-navigation__li algc-navigation__li--algolia'>
+              <a href='https://www.algolia.com/'>
+                <svg class="algolia-logo" role="img" aria-labelledby="algc-algolia-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 387 96">
+  <title id="algc-algolia-logo">algolia</title>
+  <defs>
+    <linearGradient x1="-37.7495%" y1="134.9357%" x2="130.2389%" y2="-27.7001%" id="linearGradient-1">
+      <stop stop-color="#00AEFF" offset="0%" />
+      <stop stop-color="#3369E7" offset="100%" />
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <g>
+      <path d="M12.6144 0h70.5712C90.1322 0 95.8 5.637 95.8 12.6106v70.579c0 6.9446-5.6387 12.6106-12.6144 12.6106H12.6144C5.6678 95.8002 0 90.1632 0 83.1896v-70.608C0 5.637 5.6387 0 12.6144 0z" fill="url(#linearGradient-1)" transform="translate(-636.000000, -51.000000) translate(588.000000, -3.000000) translate(48.000000, 54.000000)" />
+      <path d="M49.087 24.3205c-14.9294 0-27.0414 12.1167-27.0414 27.081 0 14.9642 12.112 27.0518 27.0415 27.0518 14.9297 0 27.0417-12.1167 27.0417-27.081 0-14.964-12.083-27.0518-27.0414-27.0518zm0 46.1422c-10.5144 0-19.0538-8.5427-19.0538-19.0612 0-10.5186 8.5394-19.0613 19.054-19.0613 10.5144 0 19.0538 8.5427 19.0538 19.0613 0 10.5185-8.5104 19.0612-19.054 19.0612zm0-34.229v14.209c0 .4067.4358.6972.8134.4938l12.6058-6.5377c.2904-.1453.3775-.494.2323-.7846-2.614-4.591-7.4647-7.729-13.0705-7.9325-.2905 0-.581.2325-.581.552zM31.4274 25.8025l-1.6556-1.6562c-1.6265-1.6272-4.2406-1.6272-5.8672 0l-1.975 1.976c-1.6266 1.627-1.6266 4.242 0 5.8693l1.6265 1.6272c.2616.2615.639.2034.8716-.058.9585-1.3077 2.004-2.557 3.166-3.7194C28.784 28.65 30.004 27.604 31.34 26.645c.2905-.1743.3195-.581.087-.8426zM57.946 21.502v-3.2834c0-2.2955-1.859-4.155-4.1535-4.155h-9.6722c-2.2946 0-4.1535 1.8595-4.1535 4.155v3.3706c0 .3777.3485.6392.726.552 2.7013-.7845 5.5478-1.1913 8.4233-1.1913 2.7597 0 5.49.3775 8.133 1.104.3486.087.697-.1744.697-.552zm181.535 51.8954c0 7.7582-1.975 13.4243-5.9543 17.0273-3.9793 3.603-10.0498 5.4046-18.2406 5.4046-2.9914 0-9.2072-.5812-14.174-1.6853l1.83-9.0076c4.1534.8717 9.643 1.104 12.5185 1.104 4.5602 0 7.8133-.9297 9.7594-2.7893 1.946-1.8593 2.9044-4.62 2.9044-8.281v-1.8595c-1.1328.552-2.614 1.104-4.444 1.6853-1.8298.552-3.9502.8426-6.332.8426-3.1368 0-5.9833-.494-8.5684-1.482-2.585-.9878-4.8216-2.4407-6.6515-4.3584-1.83-1.9178-3.2822-4.3296-4.2988-7.206-1.0166-2.8768-1.5394-8.02-1.5394-11.797 0-3.545.552-7.991 1.6266-10.9546 1.1035-2.9638 2.672-5.5208 4.7923-7.642 2.0913-2.121 4.6473-3.7483 7.639-4.9396 2.9917-1.1914 6.5062-1.9468 10.3112-1.9468 3.6888 0 7.087.4648 10.3983 1.0168 3.311.552 6.1285 1.1333 8.423 1.7725v45.096zm-31.5725-22.4318c0 4.7653 1.0456 10.0537 3.137 12.262 2.0912 2.2083 4.7924 3.3124 8.1036 3.3124 1.801 0 3.5148-.2615 5.112-.7554 1.598-.494 2.876-1.075 3.8925-1.7725V35.798c-.8133-.1744-4.2117-.8717-7.4938-.959-4.1245-.116-7.2614 1.5692-9.469 4.2714-2.1783 2.7023-3.282 7.4386-3.282 11.8552zm85.4812 0c0 3.8355-.552 6.7412-1.6846 9.9084-1.1325 3.1672-2.73 5.8694-4.7923 8.1068-2.0622 2.2374-4.531 3.9808-7.4357 5.2012-2.9046 1.2204-7.3776 1.9177-9.614 1.9177-2.2367-.029-6.6806-.6683-9.556-1.9177-2.8757-1.2495-5.3445-2.9638-7.4068-5.2012-2.062-2.2374-3.6596-4.9396-4.8215-8.1068-1.1618-3.1672-1.7427-6.073-1.7427-9.9084 0-3.8355.5228-7.5257 1.6847-10.6638 1.1618-3.1382 2.7883-5.8114 4.8796-8.0488 2.0914-2.2373 4.5893-3.9517 7.4358-5.172 2.8757-1.2205 6.0417-1.8016 9.469-1.8016 3.4274 0 6.5934.6102 9.498 1.8015 2.9045 1.22 5.4025 2.9345 7.4357 5.172 2.0622 2.2372 3.6597 4.9104 4.8215 8.0486 1.22 3.138 1.83 6.8283 1.83 10.6638zm-11.6182.029c0-4.9105-1.0747-9.0075-3.166-11.855-2.0913-2.8767-5.025-4.3005-8.7718-4.3005-3.747 0-6.6805 1.424-8.7718 4.3007-2.0916 2.8766-3.108 6.9446-3.108 11.8552 0 4.9686 1.0455 8.31 3.137 11.1867 2.091 2.9057 5.025 4.3295 8.7716 4.3295 3.7468 0 6.6804-1.453 8.7717-4.3294 2.0913-2.9057 3.137-6.218 3.137-11.1868zm36.917 25.105C300.07 76.187 300.07 61.0484 300.07 58.6366l-.029-53.697 11.3568-1.8014v53.3484c0 1.3657 0 10.0246 7.2904 10.0536V76.1zm20.0123 0h-11.415V27.052l11.415-1.8017v50.8494zm-5.722-56.2248c3.805 0 6.913-3.08 6.913-6.8864 0-3.8065-3.079-6.8865-6.913-6.8865s-6.9128 3.08-6.9128 6.8862 3.108 6.8864 6.913 6.8864zm34.0996 5.4046c3.747 0 6.913.465 9.469 1.3947 2.556.93 4.618 2.2377 6.1285 3.894 1.51 1.6562 2.585 3.9226 3.224 6.3053.668 2.3827.9873 4.9978.9873 7.8745v29.231c-1.7427.3778-4.386.8137-7.9294 1.3367-3.5436.523-7.523.7845-11.9378.7845-2.9336 0-5.6348-.2906-8.0456-.8427-2.44-.552-4.502-1.4528-6.2448-2.7022-1.714-1.2492-3.05-2.8474-4.0376-4.8232-.9585-1.976-1.4522-4.7653-1.4522-7.671 0-2.7895.5518-4.562 1.6265-6.4797 1.1037-1.9176 2.585-3.4867 4.444-4.707 1.888-1.2205 4.0373-2.092 6.5062-2.615 2.469-.523 5.054-.7847 7.726-.7847 1.249 0 2.556.087 3.9502.2323s2.8464.4068 4.415.7846v-1.86c0-1.3075-.1454-2.557-.465-3.7192-.3194-1.1914-.8712-2.2084-1.6264-3.109-.7843-.901-1.801-1.5982-3.079-2.0922-1.278-.494-2.9045-.8717-4.8506-.8717-2.614 0-4.9958.3197-7.1742.6975-2.1785.3777-3.9793.8135-5.3444 1.3075l-1.3653-9.3273c1.4234-.494 3.5437-.988 6.274-1.482s5.664-.7554 8.8008-.7554zm.9585 41.2316c3.4852 0 6.0702-.2034 7.871-.552V54.3942c-.639-.1743-1.5393-.3777-2.7302-.552-1.191-.1744-2.498-.2906-3.9503-.2906-1.249 0-2.527.087-3.805.2905-1.278.1746-2.4398.523-3.4564 1.017-1.0165.494-1.859 1.1915-2.469 2.092-.639.901-.9293 1.424-.9293 2.7898 0 2.6732.9294 4.2132 2.614 5.2302 1.7137 1.046 3.9793 1.54 6.855 1.54zM143.7464 25.57c3.747 0 6.913.465 9.469 1.3947 2.556.9298 4.618 2.2374 6.1285 3.8936 1.5395 1.6853 2.585 3.9227 3.224 6.3053.668 2.3827.9877 4.9978.9877 7.8744v29.231c-1.7427.378-4.386.8137-7.9294 1.3368-3.5436.523-7.5228.7845-11.9378.7845-2.9336 0-5.6348-.2906-8.0456-.8427-2.44-.552-4.502-1.4528-6.245-2.7022-1.7137-1.2495-3.0498-2.8476-4.0374-4.8235-.9585-1.976-1.4522-4.7656-1.4522-7.671 0-2.7897.5518-4.562 1.6265-6.48 1.104-1.9177 2.585-3.4867 4.444-4.707 1.888-1.2204 4.0373-2.092 6.5062-2.615 2.469-.523 5.054-.7847 7.726-.7847 1.249 0 2.5562.0872 3.9504.2325 1.365.145 2.8464.4066 4.415.7843v-1.8595c0-1.3076-.1453-2.557-.4648-3.7193-.3197-1.1913-.8716-2.2083-1.6268-3.109-.7842-.9008-1.8008-1.5982-3.0788-2.092-1.278-.494-2.9046-.8718-4.8507-.8718-2.614 0-4.9958.3196-7.1742.6973-2.1784.3777-3.9793.8135-5.3444 1.3075l-1.365-9.3273c1.423-.494 3.5434-.988 6.274-1.482 2.73-.523 5.6636-.7554 8.8005-.7554zm.9876 41.2606c3.4855 0 6.0706-.2034 7.8714-.552V54.7138c-.639-.1744-1.5394-.3778-2.7303-.552-1.1907-.1745-2.498-.2907-3.95-.2907-1.249 0-2.527.0874-3.805.2908-1.278.1742-2.44.523-3.4564 1.0168-1.0166.494-1.859 1.1914-2.4688 2.092-.639.901-.9297 1.424-.9297 2.7896 0 2.6733.9296 4.2133 2.614 5.2303 1.685 1.017 3.9795 1.54 6.855 1.54zm46.0374 9.269c-18.6183.0873-18.6183-15.0513-18.6183-17.463l-.029-53.697 11.357-1.8016v53.3485c0 1.3657 0 10.0246 7.2906 10.0536v9.56z" fill="#FFF" />
+    </g>
+  </g>
+</svg>
+
+              </a>
+            </li>
+            <li class='algc-navigation__li algc-navigation__li--community'>
+              <a href='https://community.algolia.com/' data-enabledropdown="true" data-dropdown="integrations">
+                <svg class="algc-arrowseparator" viewBox="0 0 18 35" xmlns="http://www.w3.org/2000/svg"><g id="Symbols" fill="none" fill-rule="evenodd"><g id="community/header" fill="#3369E6"><g id="Group-13"><g id="Group-2"><path id="Combined-Shape-Copy" d="M1.8537 34.7643l15.5597-17.268L1.8537 0H0l15.5597 17.4964L0 34.7644z"/></g></g></g></g></svg>
+                <svg class="algolia-community-logo" role="img" aria-labelledby="algc-algolia-community-logo" width="143" height="32" viewBox="0 0 143 32" xmlns="http://www.w3.org/2000/svg">
+  <title id="algc-algolia-community-logo">algolia community</title>
+  <g fill="none" fill-rule="evenodd">
+    <path fill="#46AEDA" d="M13.503 3.268L16.366.402l3.45 3.456-1.145 1.146-2.3-2.304-1.716 1.72" />
+    <path fill="#FE336F" d="M19.302 29.712L16.44 32.58l-9.777-9.792 1.145-1.146 8.627 8.638 1.717-1.72" />
+    <path fill="#F5A623" d="M20.447 28.566l12.02-12.04-11.5-11.517-1.146 1.146 10.353 10.366-10.876 10.892" />
+    <path fill="#50E3C2" d="M5.49 11.294l-5.153 5.16 5.176 5.182 1.145-1.146-4.025-4.03 4.007-4.014" />
+    <path fill="#BD0FE1" d="M6.634 10.147l5.725-5.732 1.15 1.152L7.783 11.3" />
+    <path d="M16.538 11.796c-3.07 0-5.558 2.477-5.558 5.536 0 3.06 2.49 5.53 5.558 5.53 3.068 0 5.558-2.477 5.558-5.536 0-3.06-2.484-5.53-5.558-5.53zm0 9.432c-2.16 0-3.916-1.746-3.916-3.896s1.755-3.896 3.916-3.896c2.16 0 3.916 1.746 3.916 3.896s-1.75 3.896-3.916 3.896zm0-6.996v2.904c0 .083.09.143.167.1l2.59-1.335c.06-.03.078-.1.05-.16-.557-.97-1.573-1.582-2.688-1.62-.06 0-.12.047-.12.112zm-3.63-2.133l-.34-.34c-.334-.332-.873-.332-1.206 0l-.406.405c-.16.158-.25.374-.25.6 0 .225.09.44.25.6l.334.332c.054.053.132.04.18-.012.197-.27.414-.524.65-.76.238-.24.496-.457.77-.654.06-.034.066-.117.018-.17zm5.45-.88v-.67c0-.47-.382-.85-.853-.85h-1.988c-.472 0-.854.38-.854.85v.688c0 .077.072.13.15.113.562-.16 1.145-.243 1.73-.242.568 0 1.13.077 1.673.225.034.01.07 0 .1-.02.027-.023.043-.057.043-.093zM41.436 16.5c0-.77.12-1.488.358-2.157.238-.67.58-1.25 1.022-1.74.444-.49.984-.876 1.62-1.154.635-.28 1.35-.42 2.144-.42.98 0 1.907.18 2.78.538l-.516 1.97c-.278-.12-.592-.22-.943-.3-.35-.08-.724-.12-1.12-.12-.94 0-1.656.296-2.146.886-.49.59-.735 1.423-.735 2.497 0 1.035.23 1.854.694 2.457.463.603 1.245.905 2.344.905.41 0 .814-.04 1.21-.12.398-.08.743-.178 1.034-.298l.337 1.99c-.265.132-.666.25-1.202.357-.546.108-1.102.16-1.658.16-.888 0-1.66-.136-2.314-.407-.656-.272-1.2-.65-1.63-1.134-.43-.485-.75-1.062-.962-1.732-.212-.67-.318-1.395-.318-2.177zm19.126-.02c0 .823-.12 1.572-.357 2.248-.24.676-.576 1.253-1.013 1.73-.437.478-.964.85-1.58 1.114-.615.266-1.294.398-2.035.398-.74 0-1.416-.132-2.026-.398-.608-.265-1.13-.636-1.568-1.113-.437-.48-.778-1.056-1.023-1.732-.246-.676-.368-1.425-.368-2.247 0-.82.123-1.567.367-2.237.244-.67.59-1.243 1.032-1.72.444-.478.97-.846 1.58-1.104.608-.26 1.277-.39 2.005-.39s1.4.13 2.016.39c.616.257 1.142.625 1.58 1.103.436.477.777 1.05 1.022 1.72.245.67.367 1.416.367 2.238zm-2.463 0c0-1.034-.223-1.852-.666-2.456-.443-.603-1.063-.905-1.857-.905s-1.414.3-1.857.904c-.443.604-.665 1.422-.665 2.457 0 1.048.222 1.877.665 2.487.444.61 1.063.915 1.857.915s1.414-.305 1.857-.915c.444-.61.665-1.44.665-2.486zm10.863-.258c0-1.087-.135-1.873-.407-2.357-.27-.484-.778-.726-1.52-.726-.264 0-.555.02-.873.06-.318.04-.556.072-.715.098v8.394h-2.403V11.628c.463-.133 1.07-.26 1.817-.378.748-.12 1.54-.18 2.373-.18.715 0 1.3.094 1.758.28.457.185.838.43 1.142.735.146-.106.33-.22.556-.338.226-.12.478-.23.756-.328.29-.104.584-.187.884-.25.31-.066.625-.1.943-.1.808 0 1.473.117 1.996.35.522.23.933.556 1.23.973.298.418.504.922.616 1.512.113.59.17 1.237.17 1.94v5.847H74.88v-5.47c0-1.087-.133-1.873-.397-2.357-.265-.484-.775-.726-1.53-.726-.384 0-.748.062-1.092.188-.344.126-.602.25-.775.368.106.332.18.683.22 1.054.04.372.058.77.058 1.194v5.748h-2.403v-5.47zm17.18 0c0-1.087-.136-1.873-.407-2.357-.272-.484-.778-.726-1.52-.726-.264 0-.556.02-.873.06-.318.04-.556.072-.715.098v8.394h-2.404V11.628c.464-.133 1.07-.26 1.818-.378.748-.12 1.54-.18 2.373-.18.715 0 1.3.094 1.758.28.457.185.837.43 1.142.735.145-.106.33-.22.556-.338.226-.12.478-.23.756-.328.288-.104.584-.187.883-.25.31-.066.625-.1.943-.1.807 0 1.473.117 1.996.35.522.23.932.556 1.23.973.298.418.503.922.616 1.512.112.59.17 1.237.17 1.94v5.847H92.06v-5.47c0-1.087-.133-1.873-.398-2.357-.264-.484-.774-.726-1.53-.726-.383 0-.747.062-1.09.188-.346.126-.604.25-.776.368.106.332.18.683.22 1.054.038.372.058.77.058 1.194v5.748h-2.403v-5.47zm19.78 5.15c-.462.12-1.065.244-1.806.37-.74.125-1.556.188-2.443.188-.834 0-1.532-.12-2.095-.358-.564-.238-1.014-.57-1.352-.994-.337-.424-.58-.932-.725-1.522-.145-.59-.218-1.236-.218-1.94V11.29h2.403v5.45c0 1.113.162 1.91.487 2.386.324.477.89.716 1.698.716.29 0 .6-.013.923-.04.325-.026.566-.06.725-.1V11.29h2.404v10.083zm3.06-9.744c.463-.133 1.066-.26 1.807-.378.742-.12 1.563-.18 2.463-.18.848 0 1.556.117 2.125.35.57.23 1.023.556 1.36.973.338.418.577.922.716 1.512.14.59.208 1.237.208 1.94v5.847h-2.403v-5.47c0-.557-.037-1.03-.11-1.422-.073-.39-.192-.71-.358-.955-.165-.245-.39-.424-.675-.537-.285-.112-.632-.17-1.043-.17-.304 0-.622.02-.953.06-.33.04-.575.074-.734.1v8.394h-2.403V11.628zm14.042 10.064h-2.404V11.29h2.405v10.402zm.258-13.445c0 .45-.146.808-.437 1.074-.292.266-.636.398-1.033.398-.41 0-.76-.132-1.053-.397-.29-.265-.436-.622-.436-1.073 0-.465.145-.83.436-1.094.292-.266.643-.398 1.053-.398.397 0 .74.132 1.033.398.29.265.437.63.437 1.094zm2.68.298l2.404-.398v3.143h3.694v2.008h-3.693v4.237c0 .835.133 1.432.397 1.79.265.358.715.537 1.35.537.438 0 .825-.046 1.163-.14.337-.092.606-.178.804-.258l.398 1.91c-.278.12-.642.242-1.092.367-.45.127-.98.19-1.59.19-.74 0-1.36-.1-1.856-.298-.496-.2-.89-.487-1.182-.865-.29-.378-.496-.836-.615-1.373-.12-.537-.18-1.15-.18-1.84v-9.01zm16.903 2.745c-1.073 3.95-2.318 7.53-3.734 10.74-.265.596-.536 1.107-.815 1.53-.278.425-.59.777-.933 1.055-.34.277-.732.483-1.152.607-.423.126-.914.19-1.47.19-.37 0-.738-.04-1.102-.12-.364-.08-.64-.166-.824-.26l.437-1.928c.476.186.947.278 1.41.278.622 0 1.11-.15 1.46-.447.35-.3.658-.76.923-1.383-.754-1.458-1.48-3.05-2.175-4.773-.694-1.725-1.313-3.555-1.856-5.49h2.563c.132.556.294 1.16.486 1.81.397 1.342.844 2.67 1.34 3.977.236.623.488 1.24.755 1.85.424-1.18.82-2.436 1.192-3.77.358-1.283.696-2.573 1.013-3.867h2.483z" fill="#FFF" />
+  </g>
+</svg>
+
+                <svg width="12" height="7" role="img" arial-labelledby="algc-icon-separator-alt" viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg">
+  <title id="algc-icon-separator-alt">menu with dropdown</title>
+  <path d="M6.458 3.58L2.81.37C2.344-.04 1.634.01 1.225.477c-.41.468-.362 1.18.105 1.59L5.51 5.74s.537.375 1.05.356c.515-.02.984-.433.984-.433l4.072-3.596c.467-.41.515-1.12.107-1.59C11.315.01 10.605-.04 10.138.37l-3.68 3.21z" fill="#FFF" fill-rule="evenodd" />
+</svg>
+
+              </a>
+            </li>
+            
+    <li class="algc-navigation__li">
+      <a class='algc-badge algc-navigation__navitem' href='https://community.algolia.com/magento/ '
+       data-dropdown="links" data-enabledropdown="false">
+            <svg class="algc-arrowseparator" viewBox="0 0 18 35" xmlns="http://www.w3.org/2000/svg"><g id="Symbols" fill="none" fill-rule="evenodd"><g id="community/header" fill="#3369E6"><g id="Group-13"><g id="Group-2"><path id="Combined-Shape-Copy" d="M1.8537 34.7643l15.5597-17.268L1.8537 0H0l15.5597 17.4964L0 34.7644z"/></g></g></g></g></svg>
+            
+            <span>Magento</span>
+      </a>
+    </li>
+          </ul>
+
+          <div class='algc-navigation__menu'>
+            
+    <div class='algc-menu__search'>
+      <div class='algc-menu__search--holder open'>
+        <div class='algc-search__input algc-search__input--docsearch'>
+          <input id='searchbox' placeholder='Search documentation ...' type='search'>
+          <button id='search'>
+            <svg role="img" aria-labelledby="algc-top-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
+  <title id="algc-top-search-icon">Open search input</title>
+  <path d="M10.052 10.88c-1.1.91-2.483 1.406-3.91 1.403C2.75 12.283 0 9.533 0 6.14 0 2.75 2.75 0 6.142 0c3.392 0 6.14 2.75 6.14 6.142 0 1.485-.526 2.847-1.403 3.91l3.95 3.95c.227.227.228.596-.002.826-.228.227-.597.228-.826 0l-3.95-3.95zm-3.91.234c2.745 0 4.972-2.227 4.972-4.972 0-2.747-2.227-4.972-4.972-4.972-2.747 0-4.972 2.225-4.972 4.972 0 2.745 2.225 4.972 4.972 4.972z" fill="#FFF" fill-rule="evenodd" />
+</svg>
+
+          </button>
+          <button id='cancel'>
+            <svg role="img" aria-labelledby="algc-top-search-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 13">
+  <title id="algc-top-search-close">Close search input</title>
+  <path d="M5.274 6.5L.614 1.84 0 1.225 1.226 0l.613.613 4.66 4.66 4.66-4.66.614-.613L13 1.226l-.613.613-4.66 4.66 4.66 4.66.613.614L11.774 13l-.613-.613-4.66-4.66-4.66 4.66-.614.613L0 11.774l.613-.613" fill="#FFF" fill-rule="evenodd" />
+</svg>
+
+          </button>
+        </div>
+      </div>
+    </div>
+            <ul class='algc-menu__list'>
+      <li class="algc-menu__list__item algc-menu--hassublist">
+        <a href="#"  class="algc-menu--sublistlink">
+          Documentation
+          <span class="algc-glyph">▼</span>
+        </a>
+        <ul class='algc-menu__sublist'>
+    <li>
+      <a href="https://community.algolia.com/magento/doc/m1/getting-started/" >Documentation for Magento 1</a>
+    </li>
+  
+    <li>
+      <a href="https://community.algolia.com/magento/doc/m2/getting-started/" >Documentation for Magento 2</a>
+    </li>
+  
+    <li>
+      <a href="https://discourse.algolia.com/c/magento" target=_blank>Discourse (forum)</a>
+    </li>
+  </ul>
+      </li>
+      <li class="algc-menu__list__item ">
+        <a href="/magento/faq/"  class="">
+          FAQ
+          
+        </a>
+        
+      </li>
+      <li class="algc-menu__list__item algc-menu--hassublist">
+        <a href="#"
+          
+          class="algc-menu--sublistlink">
+          <img src='/magento/img/icon-github.svg' alt='View on Github'/>
+          <span class="algc-glyph">▼</span>
+        </a>
+        <ul class='algc-menu__sublist'>
+    <li>
+      <a href="https://github.com/algolia/algoliasearch-magento" target=_blank>Magento 1</a>
+    </li>
+  
+    <li>
+      <a href="https://github.com/algolia/algoliasearch-magento-2" target=_blank>Magento 2</a>
+    </li>
+  </ul>
+      </li></ul>
+            <button class='algc-openmobile'><span></span></button>
+          </div>
+          
+          <div class='algc-navigation__dropdown-holder'>
+            <div class='algc-dropdownroot notransition'>
+              <div class='algc-dropdownroot__dropdownbg'></div>
+              <div class='algc-dropdownroot__dropdownarrow'></div>
+              <div class='algc-dropdownroot__dropdowncontainer'>
+                
+    <div class="algc-dropdownroot__section">
+      <div class="algc-dropdownroot__content" data-dropdown-content="integrations">
+      <ul class="algc-dropdownroot__widelist">
+  <li>
+    <div class="dropdown-item">
+      <a href="https://community.algolia.com/wordpress" >
+        <span class="item-icon" style="background: linear-gradient(to bottom right, #4041B2, #516ED1)"><img src="https://community.algolia.com/wordpress/img/icons/wp-icon.svg" alt="Wordpress"/></span>
+        <h4>Wordpress</h4>
+      </a>
+    </div>
+  </li>
+  <li>
+    <div class="dropdown-item">
+      <a href="https://community.algolia.com/shopify" >
+        <span class="item-icon" style="background: linear-gradient(to bottom left, #29D98D, #03A8F6 450%)"><svg viewBox="0 0 95 108" xmlns="http://www.w3.org/2000/svg"><title>Algolia Shopify integration</title><path d="M82.996 20.982c-.074-.542-.548-.842-.94-.875-.392-.033-8.675-.646-8.675-.646S67.63 13.75 67 13.12c-.632-.632-1.866-.44-2.345-.3l-3.22.995c-1.92-5.53-5.312-10.61-11.278-10.61-.164 0-.334.006-.504.016C47.955.974 45.854 0 44.038 0 30.14 0 23.5 17.373 21.417 26.202c-5.4 1.674-9.236 2.863-9.726 3.017-3.013.945-3.108 1.04-3.504 3.88C7.886 35.25 0 96.247 0 96.247l61.46 11.515 33.3-7.204S83.07 21.523 82.996 20.982zm-24.96-6.118l-5.2 1.61c.003-.367.004-.728.004-1.122 0-3.437-.477-6.203-1.242-8.397 3.074.386 5.122 3.883 6.44 7.91zm-10.25-7.228c.853 2.142 1.41 5.215 1.41 9.363 0 .21-.003.405-.004.6-3.383 1.05-7.058 2.186-10.74 3.327 2.067-7.982 5.944-11.836 9.333-13.29zm-4.13-3.908c.6 0 1.204.203 1.782.6-4.454 2.097-9.228 7.376-11.244 17.917l-8.49 2.63c2.36-8.04 7.97-21.147 17.95-21.147zm6.5 34.78L46.048 50.72s-3.6-1.92-8.008-1.92c-6.465 0-6.79 4.06-6.79 5.08 0 5.58 14.54 7.717 14.54 20.783 0 10.28-6.52 16.9-15.31 16.9-10.55 0-15.946-6.566-15.946-6.566l2.824-9.333s5.546 4.76 10.226 4.76c3.057 0 4.3-2.406 4.3-4.165 0-7.278-11.93-7.603-11.93-19.56 0-10.063 7.225-19.802 21.805-19.802 5.62 0 8.395 1.61 8.395 1.61z" fill="#FFF" fill-rule="evenodd"/></svg></svg></span>
+        <h4>Shopify</h4>
+      </a>
+    </div>
+  </li>
+  <li>
+    <div class="dropdown-item">
+      <a href="https://community.algolia.com/instantsearch.js/react" >
+        <span class="item-icon" style="background: linear-gradient(to bottom left, #2C5EE2 0%, #17204F 150%)"><svg viewBox="0 0 127 113" xmlns="http://www.w3.org/2000/svg"><title>React InstantSearch</title><path d="M51.438 52.172l-2.907-1.68-2.565 4.442c-1.52-.485-3.137-.746-4.816-.746-8.75 0-15.84 7.098-15.84 15.852 0 8.755 7.09 15.853 15.84 15.853 8.747 0 15.837-7.098 15.837-15.853 0-4.66-2.008-8.85-5.206-11.75l2.564-4.435 1.936-3.336-5.81-3.37-1.936 3.337 2.904 1.685zm19.292 14.51c1.54-7.14 7.885-12.494 15.482-12.494 8.75 0 15.84 7.098 15.84 15.852 0 8.755-7.09 15.853-15.84 15.853-7.597 0-13.943-5.353-15.482-12.495h-5.128v-6.715h5.128zm3.256-17.848l2.904-1.686-2.58-4.444c3.19-2.9 5.193-7.085 5.193-11.738 0-8.755-7.09-15.853-15.838-15.853s-15.84 7.098-15.84 15.853c0 8.754 7.092 15.853 15.84 15.853 1.685 0 3.31-.265 4.833-.753L71.07 50.5l1.86 3.316 5.858-3.287-1.874-3.34-2.928 1.644zm-5.46 48.817c9.465 7.297 18.232 9.824 23.72 6.652 4.93-2.854 7.322-10.372 6.404-21.197l6.692-.567c1.114 13.135-2.072 23.14-9.732 27.576-8.57 4.954-20.363 1.55-32.23-7.96-11.87 9.51-23.664 12.914-32.234 7.96-7.658-4.436-10.844-14.44-9.73-27.576l6.692.567c-.918 10.825 1.475 18.343 6.4 21.195 5.49 3.174 14.26.647 23.724-6.65-2.332-2.213-4.648-4.65-6.925-7.297l5.09-4.38c2.316 2.69 4.656 5.127 6.982 7.295 2.325-2.168 4.664-4.604 6.98-7.296l5.09 4.38c-2.276 2.647-4.593 5.085-6.924 7.3zM28.243 30.393c4.176-1.31 8.71-2.38 13.53-3.183l1.103 6.623c-4.92.82-9.467 1.933-13.557 3.273.776 3.706 1.885 7.634 3.337 11.715l-6.326 2.252c-1.41-3.96-2.532-7.827-3.363-11.545-10.185 4.496-16.25 10.552-16.25 16.62 0 5.608 5.14 11.386 14.597 15.885l-2.885 6.064C6.88 72.603 0 64.87 0 56.146 0 46.57 8.354 38.27 21.75 32.733c-1.89-14.33 1.134-25.656 9.416-30.45 7.857-4.593 18.53-2.077 29.646 6l-3.948 5.433c-9.196-6.682-17.264-8.584-22.32-5.63-5.25 3.04-7.485 11.27-6.3 22.306zm69.23 6.708c-4.098-1.34-8.655-2.452-13.586-3.266l1.094-6.626c4.834.798 9.38 1.87 13.567 3.178 1.182-11.033-1.055-19.263-6.312-22.306-5.045-2.948-13.113-1.046-22.31 5.636L65.98 8.283C77.094.206 87.766-2.31 95.612 2.275c8.29 4.8 11.314 16.124 9.427 30.45 13.376 5.528 21.718 13.83 21.718 23.42 0 8.724-6.882 16.458-18.43 21.95l-2.884-6.063c9.457-4.5 14.598-10.277 14.598-15.886 0-6.08-6.053-12.138-16.218-16.626-.83 3.72-1.954 7.588-3.365 11.552l-6.328-2.25c1.453-4.084 2.562-8.014 3.34-11.722zM61.79 73.398h3.812v-6.715h-3.81v6.715zm-20.64 5.78c-5.04 0-9.124-4.09-9.124-9.138 0-5.047 4.085-9.137 9.123-9.137 5.036 0 9.122 4.09 9.122 9.137 0 5.048-4.086 9.138-9.123 9.138zm45.062 0c5.038 0 9.123-4.09 9.123-9.138 0-5.047-4.085-9.137-9.123-9.137-5.037 0-9.122 4.09-9.122 9.137 0 5.048 4.085 9.138 9.122 9.138zM63.665 40.103c-5.038 0-9.123-4.09-9.123-9.137 0-5.047 4.085-9.137 9.123-9.137 5.037 0 9.123 4.09 9.123 9.136 0 5.047-4.086 9.137-9.123 9.137z" fill="#FFF" fill-rule="evenodd"/></svg></svg></span>
+        <h4>React InstantSearch</h4>
+      </a>
+    </div>
+  </li>
+  <li>
+    <div class="dropdown-item">
+      <a href="https://community.algolia.com/instantsearch.js/" >
+        <span class="item-icon" style="background: #385D72"><img src="https://community.algolia.com/img/logo-is.svg" alt="instantsearch.js"/></span>
+        <h4>instantsearch.js</h4>
+      </a>
+    </div>
+  </li>
+  <li>
+    <div class="dropdown-item">
+      <a href="https://community.algolia.com/places/" >
+        <span class="item-icon" style="background: #3a5395"><img src="https://community.algolia.com/places/images/svg/places-illustration-65745839.svg" alt="places.js"/></span>
+        <h4>places.js</h4>
+      </a>
+    </div>
+  </li>
+  <li>
+    <div class="dropdown-item">
+      <a href="https://community.algolia.com/algoliasearch-helper-js/" >
+        <span class="item-icon" style="background: #FDBD57"><img src="https://community.algolia.com/img/logo-helper.svg" alt="Helper.js"/></span>
+        <h4>Helper.js</h4>
+      </a>
+    </div>
+  </li></ul>
+        <div class="algc-dropdownroot__footer">
+          <a href="https://discourse.algolia.com/?utm_medium=social-owned&utm_source=communityHeader">
+            <span style="font-weight:bold;">Community Forum</span>
+          </a>
+        </div>
+        </div>
+        </div>
+    <div class="algc-dropdownroot__section">
+      <div class="algc-dropdownroot__content" data-dropdown-content="links">
+      <ul class="algc-dropdownroot__widelist"></ul>
+        <div class="algc-dropdownroot__footer">
+          <a href="https://discourse.algolia.com/?utm_medium=social-owned&utm_source=communityHeader">
+            <span style="font-weight:bold;">Community Forum</span>
+          </a>
+        </div>
+        </div>
+        </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class='algc-mobilemenu'><div class='algc-mobilemenuwrapper'><ul class='algc-mobilemenulist'>
+      <li class="algc-mobilemenu__item">
+        <a href="/magento/" >
+          Home
+        </a>
+      </li>
+      <li class="algc-mobilemenu__item">
+        <a href="https://community.algolia.com/magento/doc/m1/getting-started/" target=_blank>
+          Install Magento 1
+        </a>
+      </li>
+      <li class="algc-mobilemenu__item">
+        <a href="https://community.algolia.com/magento/doc/m2/getting-started/" target=_blank>
+          Install Magento 2
+        </a>
+      </li>
+      <li class="algc-mobilemenu__item">
+        <a href="https://community.algolia.com/magento/doc/m1/getting-started/" >
+          Magento 1 Docs
+        </a>
+      </li>
+      <li class="algc-mobilemenu__item">
+        <a href="https://community.algolia.com/magento/doc/m2/getting-started/" >
+          Magento 2 Docs
+        </a>
+      </li>
+      <li class="algc-mobilemenu__item">
+        <a href="https://discourse.algolia.com/c/magento" target=_blank>
+          Discourse
+        </a>
+      </li>
+      <li class="algc-mobilemenu__item">
+        <a href="/magento/faq/" >
+          FAQ
+        </a>
+      </li></ul></div></div>
+
+    </nav>
+    <!-- End community_header --> 
+
+  <div class='main-content'>
+  <div class='hiring'>
+    <div class='container'>
+      <p>Are you a Magento engineer? <a href="https://www.algolia.com/careers#!?j=eed58660-f684-436d-a2ff-e9947d2b65a2">Join our team</a> and help us deliver the best search solution for Magento stores!</p>
+    </div>
+  </div>
+  <div class='hero-header jumbotron' id='install'>
+    <div class='container'>
+      <div class='magento-1'>
+        <h1>
+          <img alt='Algolia' class='jumbotron-algolia_logo' src='/magento/img/logo-algolia-bw-dark-nobg.svg' title='Algolia'>
+          for
+          <img alt='Magento' class='jumbotron-magento_logo' src='https://res.cloudinary.com/hilnmyskv/image/upload/v1470238602/magento-white-logo-white_ngqfvg.svg' title='Magento'>
+          <span class='vnum'>1</span>
+        </h1>
+        <div class='row'>
+          <div class='col-md-12 text-center'>
+            <p>As-You-Type Autocomplete and Instant Search Results Page, all Customizable & Open-Source.</p>
+          </div>
+        </div>
+        <div class='latest-version'>
+          Latest version:
+          <b class='m1_version'>1.8.0</b>
+        </div>
+        <div class='buttons'>
+          <a class='btn btn-white' href='https://magento.algolia.com' target='_blank'>
+            See it in Action
+          </a>
+          <a class='btn btn-white install' href='/magento/doc/m1/getting-started/'>
+            Install the extension now
+          </a>
+        </div>
+        <div class='documentation'>
+          <a href='/magento/doc/m1/getting-started/'>
+            or read Magento 1 documentation
+          </a>
+        </div>
+        <div class='badges'>
+          <iframe src="https://ghbtns.com/github-btn.html?user=algolia&repo=algoliasearch-magento&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+          <img alt='Magento versions supported' src='https://img.shields.io/badge/magento-1.6.2%2B-blue.svg' title='Magento versions supported'>
+        </div>
+      </div>
+      <div class='magento-2'>
+        <h1>
+          <img alt='Algolia' class='jumbotron-algolia_logo' src='/magento/img/logo-algolia-bw-nobg.svg' title='Algolia'>
+          for
+          <img alt='Magento' class='jumbotron-magento_logo' src='https://res.cloudinary.com/hilnmyskv/image/upload/v1470148513/magento-black_gxoagf.svg' title='Magento'>
+          <span class='vnum'>2</span>
+        </h1>
+        <div class='row'>
+          <div class='col-md-12 text-center'>
+            <p>As-You-Type Autocomplete and Instant Search Results Page, all Customizable & Open-Source.</p>
+          </div>
+        </div>
+        <div class='latest-version'>
+          Latest version:
+          <b class='m2_version'>1.0.5</b>
+        </div>
+        <div class='buttons'>
+          <a class='btn' href='https://magento2.algolia.com' target='_blank'>
+            See it in Action
+          </a>
+          <a class='btn install' href='/magento/doc/m2/getting-started/'>
+            Install the extension now
+          </a>
+        </div>
+        <div class='documentation'>
+          <a href='/magento/doc/m1/getting-started/'>
+            or read Magento 2 documentation
+          </a>
+        </div>
+        <div class='badges'>
+          <iframe src="https://ghbtns.com/github-btn.html?user=algolia&repo=algoliasearch-magento-2&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='page-section lead-gen'>
+    <div class='container'>
+      <h1 class='headline'>Delight visitors with instant search that increases conversions</h1>
+      <a class='btn btn-white' href='https://www.algolia.com/users/sign_up?utm_medium=social-owned&amp;utm_source=magento%20website&amp;utm_campaign=homepage&amp;utm_term=why'>Start using it now</a>
+    </div>
+  </div>
+  <div class='page-section the-why'>
+    <div class='container'>
+      <h1 class='headline'>Product search you can integrate into your Magento store in minutes</h1>
+      <div class='row'>
+        <div class='col-sm-8 col-sm-offset-2 text-center'>
+          <p>With Algolia's as-you-type search customers think less about how to search and more about what they find. Serve relevant content from the first keystroke.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='page-section integrate'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-sm-4 col-sm-offset-1'>
+          <img alt='Highlight popular products for your ecommerce store' class='img-responsive m-l-r-auto' src='/magento/img/magento-popular-products.svg'>
+        </div>
+        <div class='col-sm-6'>
+          <p><b>Integrate in minutes</b> – improve search and increase the conversion rate of your e-commerce site.</p>
+          <p>Algolia’s Magento Search Plugin makes it easy to deliver a <b>lightning fast search experience</b> to your customers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='page-section demos'>
+    <div class='container'>
+      <div class='col-md-12'>
+        <div class='row demo'>
+          <div class='col-sm-5 mobile-only'>
+            <svg class='ac-icon'>
+              <use class='icon-stroke-white' xlink:href='#illu-autocomplete'></use>
+            </svg>
+            <h3>Product & Category Autocomplete</h3>
+            <p>Users can access your entire catalog from the search bar with results that update in real time.</p>
+          </div>
+          <div class='col-sm-7'>
+            <img alt='Autocomplete Search Example for Magento 1' class='img-responsive m-l-r-auto' src='/magento/img/autocomplete-magento-search-example.gif'>
+            <img alt='Autocomplete Search Example for Magento 2' class='img-responsive m-l-r-auto' src='/magento/img/autocomplete-magento-2-search-example.gif'>
+          </div>
+          <div class='col-sm-5 desktop-only'>
+            <svg class='ac-icon'>
+              <use class='icon-stroke-white' xlink:href='#illu-autocomplete'></use>
+            </svg>
+            <h3>Product & Category Autocomplete</h3>
+            <p>Users can access your entire catalog from the search bar with results that update in real time.</p>
+          </div>
+        </div>
+        <div class='row demo'>
+          <div class='col-sm-5 text-right'>
+            <svg class='ac-icon'>
+              <use class='icon-stroke-white' xlink:href='#illu-faceting'></use>
+            </svg>
+            <h3>Instant & Faceted search</h3>
+            <p>Have your search results page update after each keystroke, so users find what they're looking for faster.</p>
+          </div>
+          <div class='col-sm-7'>
+            <img alt='Instant Search for Magento 1' class='img-responsive m-l-r-auto' src='/magento/img/instant-search.gif'>
+            <img alt='Instant Search for Magento 2' class='img-responsive m-l-r-auto' src='/magento/img/m2-instantsearch.gif'>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='page-section features'>
+    <div class='container'>
+      <h1 class='headline'>Features</h1>
+    </div>
+    <div class='container'>
+      <div class='row'>
+        <div class='row col-md-6'>
+          <div class='col-md-8 col-sm-9 text-right'>
+            <svg class='ac-icon'>
+              <use class='icon-stroke-blue' xlink:href='#illu-fast-relevance'></use>
+            </svg>
+            <h3>Relevance</h3>
+            <p>Increase customer satisfaction by serving relevant results. If a user can't find a product, they won't buy it!</p>
+          </div>
+          <div class='col-md-4 col-sm-3 hidden-xs'>
+            <div class='bubble'>
+              <img alt='Relevant Search for your Magento Store' src='/magento/img/relevant-magento-search.png'>
+            </div>
+          </div>
+        </div>
+        <div class='row col-md-6'>
+          <div class='col-md-4 col-sm-3 hidden-xs'>
+            <div class='bubble'>
+              <img alt='Speed in search with fast results under 3ms' src='/magento/img/fastest-magento-search.png'>
+            </div>
+          </div>
+          <div class='col-md-8 col-sm-9'>
+            <svg class='ac-icon'>
+              <use class='icon-stroke-blue' xlink:href='#illu-rocket'></use>
+            </svg>
+            <h3>Speed</h3>
+            <p>Deliver lightning fast results to your customers, anywhere in the world thanks to our distributed search network.</p>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='row col-md-6'>
+          <div class='col-md-8 col-sm-9 text-right'>
+            <svg class='ac-icon'>
+              <use class='icon-stroke-blue' xlink:href='#illu-typo-tolerance'></use>
+            </svg>
+            <h3>Typo Tolerance</h3>
+            <p>Have your search results page, navigation and pagination updated in realtime, after each keystroke.</p>
+          </div>
+          <div class='col-md-4 col-sm-3 hidden-xs'>
+            <div class='bubble'>
+              <img alt='Typo tolerance automatically corrects Magento searches' src='/magento/img/magento-search-typo-correction.png'>
+            </div>
+          </div>
+        </div>
+        <div class='row col-md-6'>
+          <div class='col-md-4 col-sm-3 hidden-xs'>
+            <div class='bubble'>
+              <img alt='Facets and Filters for your most popular store categories' src='/magento/img/magento-category-facets.png'>
+            </div>
+          </div>
+          <div class='col-md-8 col-sm-9'>
+            <svg class='ac-icon'>
+              <use class='icon-stroke-blue' xlink:href='#illu-faceting'></use>
+            </svg>
+            <h3>Instant Faceting</h3>
+            <p>Provide as-you-type updated filters and make your search bar a powerful browsing tool.</p>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='row col-md-6'>
+          <div class='col-md-8 col-sm-9 text-right'>
+            <svg class='ac-icon'>
+              <use class='icon-stroke-blue' xlink:href='#illu-analytics'></use>
+            </svg>
+            <h3>Analytics</h3>
+            <p>From a simple dashboard, get valuable information on how your customers are searching and what they're searching for.</p>
+          </div>
+          <div class='col-md-4 col-sm-3 hidden-xs'>
+            <div class='bubble'>
+              <img alt='Analytics to track popular searches and ecommerce sales' src='/magento/img/magento-analytics-for-ecommerce.png'>
+            </div>
+          </div>
+        </div>
+        <div class='row col-md-6'>
+          <div class='col-md-4 col-sm-3 hidden-xs'>
+            <div class='bubble'>
+              <img alt='Sync Magento Products and Inventory Automatically' src='/magento/img/auto-sync-magento-inventory.png'>
+            </div>
+          </div>
+          <div class='col-md-8 col-sm-9'>
+            <svg class='ac-icon'>
+              <use class='icon-stroke-blue' xlink:href='#illu-sync'></use>
+            </svg>
+            <h3>Catalog Auto-Sync</h3>
+            <p>Benefit from realtime indexing that instantly captures product additions, price changes, etc. No matter server performance.</p>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-sm-4 col-sm-offset-4 github'>
+          <svg class='ac-icon m-l-r-auto'>
+            <use class='icon-grey' xlink:href='#github-icon'></use>
+          </svg>
+          <h3>Open source</h3>
+          <p>
+            Make it look like anything you want!
+            <br>
+            Open-source, available on Github.
+            <br>
+            [ <a href="https://github.com/algolia/algoliasearch-magento">Magento 1</a> , <a href="https://github.com/algolia/algoliasearch-magento-2">Magento 2</a> ]
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='page-section showcases'>
+    <div class='container'>
+      <h1 class='headline'>Showcase</h1>
+      <div class='row'>
+        <div class='col-sm-4'>
+          <a href='http://www.whisky.fr'>
+            <h4>whisky.fr</h4>
+          </a>
+          <a class='showcase' href='http://www.whisky.fr'>
+            <img alt='Maison du Whisky' class='img-responsive' src='/magento/img/maison-du-whisky-screen.png'>
+          </a>
+          <br>
+          <ul>
+            <li>Autocomplete menu</li>
+            <li>Instant search results page</li>
+          </ul>
+        </div>
+        <div class='col-sm-4'>
+          <a href='http://www.beyondretro.com/'>
+            <h4>Beyondretro</h4>
+          </a>
+          <a class='showcase' href='http://www.beyondretro.com/'>
+            <img alt='Beyond Retro' class='img-responsive' src='/magento/img/beyond-retro-screen.png'>
+          </a>
+          <br>
+          <ul>
+            <li>Autocomplete menu</li>
+            <li>Instant search results page</li>
+            <li>Category listings</li>
+          </ul>
+        </div>
+        <div class='col-sm-4'>
+          <a href='http://www.whoopey.com'>
+            <h4>Whoopey</h4>
+          </a>
+          <a class='showcase' href='http://www.whoopey.com'>
+            <img alt='Whoopey' class='img-responsive' src='/magento/img/whoopey-screen.png'>
+          </a>
+          <br>
+          <ul>
+            <li>Autocomplete menu</li>
+            <li>Instant search results page</li>
+          </ul>
+        </div>
+        <div class='col-sm-4'>
+          <a href='https://www.yakima.com/'>
+            <h4>Yakima</h4>
+          </a>
+          <a class='showcase' href='https://www.yakima.com/'>
+            <img alt='Yakima' class='img-responsive' src='/magento/img/yakima-screen.png'>
+          </a>
+          <br>
+          <ul>
+            <li>Search by vehicles feature</li>
+          </ul>
+        </div>
+        <div class='col-sm-4'>
+          <a href='http://filson.com/'>
+            <h4>Filson</h4>
+          </a>
+          <a class='showcase' href='http://filson.com/'>
+            <img alt='Filson' class='img-responsive' src='/magento/img/filson-screen.png'>
+          </a>
+          <br>
+          <ul>
+            <li>Autocomplete menu</li>
+            <li>Instant search results page</li>
+          </ul>
+        </div>
+        <div class='col-sm-4'>
+          <a href='http://lancaster.com/'>
+            <h4>Lancaster</h4>
+          </a>
+          <a class='showcase' href='http://lancaster.com/'>
+            <img alt='Lancaster' class='img-responsive' src='/magento/img/lancaster-screen.png'>
+          </a>
+          <br>
+          <ul>
+            <li>Instant search</li>
+          </ul>
+        </div>
+        <div class='col-sm-4'>
+          <a href='http://chromeindustries.eu/eu/en/'>
+            <h4>Chrome Industries</h4>
+          </a>
+          <a class='showcase' href='http://chromeindustries.com/'>
+            <img alt='Chrome Industries' class='img-responsive' src='/magento/img/chrome-screen.png'>
+          </a>
+          <br>
+          <ul>
+            <li>Autocomplete menu</li>
+            <li>Instant search results page</li>
+            <li>Category listings</li>
+          </ul>
+        </div>
+        <div class='col-sm-4'>
+          <a href='https://all4running.nl/'>
+            <h4>All4running</h4>
+          </a>
+          <a class='showcase' href='https://all4running.nl/'>
+            <img alt='All4Running' class='img-responsive' src='/magento/img/all4running-screen.png'>
+          </a>
+          <br>
+          <ul>
+            <li>Autocomplete menu</li>
+            <li>Instant search results page</li>
+            <li>Category listings</li>
+          </ul>
+        </div>
+        <div class='col-sm-4'>
+          <a href='#install'>
+            <div class='showcase fixme'>You?</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='page-section partners'>
+    <div class='container text-center'>
+      <h1 class='headline'>Magento Partners</h1>
+      <p>Implement the perfect Magento store search experience with one of our recommended partner agencies.</p>
+    </div>
+    <div class='row'>
+      <div class='col-md-12'>
+        <div class='col-md-6'>
+          <ul>
+            <li data-pin='dnd'>
+              <a href='http://www.dnd.fr'>
+                <div class='cover'>
+                  <img alt='agence-dnd-logo' src='/magento/img/partners/agence-dnd-logo-2.png'>
+                </div>
+                <span class='name'>DND</span>
+              </a>
+              <span class='localization'>Paris, France</span>
+            </li>
+            <li data-pin='balance'>
+              <a href='http://www.balanceinternet.com.au/'>
+                <div class='cover'>
+                  <img alt='balance_internet-logo' src='/magento/img/partners/balance_internet-logo.png'>
+                </div>
+                <span class='name'>Balance</span>
+              </a>
+              <span class='localization'>Melbourne | Brisbane | Sydney, Australia | Singapore</span>
+            </li>
+            <li data-pin='trollweb'>
+              <a href='https://trollweb.no/'>
+                <div class='cover'>
+                  <img alt='trollweb-logo' src='/magento/img/partners/trollweb-logo.png'>
+                </div>
+                <span class='name'>TrollWeb</span>
+              </a>
+              <span class='localization'>Sandnes, Norway</span>
+            </li>
+            <li data-pin='inviqa'>
+              <a href='https://inviqa.com/'>
+                <div class='cover'>
+                  <img alt='inviqa-logo' src='/magento/img/partners/inviqa-logo.svg'>
+                </div>
+                <span class='name'>Inviqa</span>
+              </a>
+              <span class='localization'>Munich | Berlin, Germany | Bratislava, Slovakia | Hódmezövásárhely, Hungary | Kaunas, Lithuania</span>
+            </li>
+            <li data-pin='alpine'>
+              <a href='http://alpineinc.com'>
+                <div class='cover'>
+                  <img alt='alpine-consulting-logo' src='/magento/img/partners/alpine-consulting-logo.svg'>
+                </div>
+                <span class='name'>Alpine</span>
+              </a>
+              <span class='localization'>Austin Texas, USA</span>
+            </li>
+            <li data-pin='evolution7'>
+              <a href='https://www.evolution7.com.au/'>
+                <div class='cover'>
+                  <img alt='evolution-7-logo' src='/magento/img/partners/evolution-7-logo.svg'>
+                </div>
+                <span class='name'>Evolution</span>
+              </a>
+              <span class='localization'>Melbourne, Australia</span>
+            </li>
+            <li data-pin='eystudio'>
+              <a href='http://www.eystudios.com/'>
+                <div class='cover'>
+                  <img alt='ey-studios-logo' src='/magento/img/partners/ey-studios-logo.svg'>
+                </div>
+                <span>EY.name Studio</span>
+              </a>
+              <span class='localization'>Kennesaw Georgia, USA</span>
+            </li>
+            <li data-pin='justbetter'>
+              <a href='https://justbetter.nl/'>
+                <div class='cover'>
+                  <img alt='justbetter-logo' class='fr-width' src='/magento/img/partners/justbetter-logo.svg'>
+                </div>
+                <span>JustBetter</span>
+              </a>
+              <span class='localization'>Alkmaar, The Netherlands</span>
+            </li>
+            <li data-pin='convertgroup'>
+              <a href='http://www.convert.no/'>
+                <div class='cover'>
+                  <img alt='convertgroup-logo' class='fr-width' src='/magento/img/partners/convert-logo.png'>
+                </div>
+                <span>Convert Group</span>
+              </a>
+              <span class='localization'>Oslo, Norway</span>
+            </li>
+          </ul>
+        </div>
+        <div class='col-md-6 map-container'>
+          <div class='map'>
+            <svg height='785' viewbox='0 0 1614 785' width='1614' xmlns='http://www.w3.org/2000/svg'>
+              <g fill-rule='evenodd' fill='none' id='Page-1'>
+                <g fill-rule='nonzero' fill='#FFF' id='map-magento'>
+                  <g id='Page-1'>
+                    <g id='map-magento-partners'>
+                      <g id='Page-1'>
+                        <g id='Artboard'>
+                          <g id='white_on_blue'>
+                            <g id='Meh,-the-world' opacity='.426'>
+                              <path d='M252.138 49.225c4.677 2.34 8.575 16.904 14.55 11.703 5.717-5.2 13.513.26 22.087.26 8.575 0 17.41-4.42 19.748-9.102 2.338-4.42 1.818-14.043-3.378-10.662-5.197 3.38-21.826 5.2-29.102 2.34-7.275-2.86-17.41-8.32-23.125-9.102-5.457-.52-16.89 1.56-16.63 9.102-.26 7.542 10.913 3.12 15.85 5.46v.001zM400.504 73.93c1.82-2.34 3.638-8.06 10.654-4.42 7.015 3.64 19.747 0 22.086 11.962 2.338 11.962-5.197 17.683-10.394 19.243-5.196 1.56-2.598 5.202 10.913 10.663 13.512 5.2 15.59 5.98 15.59 1.04s-3.377-11.442 2.08-10.922c5.456.26 8.834-4.42 6.755-7.542-2.08-3.12-2.858-9.102.52-12.482 3.637-3.38 4.677-6.762-3.898-12.483-8.574-5.723-11.173-12.744-22.606-13.004-11.432-.52-11.432 4.68-17.15 2.34-5.715-2.34-7.794-3.64-12.47-1.04 0 0-11.693 4.94-9.095 9.622 2.596 4.42 5.195 9.36 7.013 7.02v.002l.002.001zm13.512 406.72c-10.913-7.54-30.14-2.86-30.14-2.86s7.274-9.622 5.975-23.405c-1.297-13.782-18.706-8.84-24.942-13.782-6.236-4.94-16.37-14.303-24.165-15.603-7.535-1.3-23.385-16.384-27.802-15.343-4.416 1.04-21.566-4.68-23.904-6.762-2.34-2.08-6.756 14.823-9.614 16.123-2.857 1.3-5.715-17.683-10.652-18.723-4.937-.78-8.835 16.903-14.55 17.683-1.3.26-2.34.52-3.12 1.04-3.897-5.2-11.692-13.002-12.21-20.284-.78-9.36 4.676-16.383-2.08-20.544-6.756-4.16-20.787 0-20.787 0s5.458-11.182 9.355-21.064c3.898-9.882-3.897-15.343-10.653-10.662-6.756 4.68-2.858 16.643-21.566 17.944-18.45 1.3-19.75-19.764-17.15-36.928 2.6-17.423 18.45-27.825 28.84-31.206 10.395-3.38 9.875.52 15.85 5.46 5.977 4.942 10.914-8.06 17.15-10.14 6.236-1.82 20.787 5.98 22.086 9.62 1.04 3.642 3.118 18.205 6.756 20.285 3.637 2.08 4.936-3.383 6.495-9.884 1.56-6.24-4.157-16.383-4.157-22.104 0-5.72 28.582-21.324 37.416-29.126 8.834-7.802 17.67-19.764 22.865-24.965 5.197-5.2 8.835-5.98 14.29-7.28 5.458-1.04 5.718-7.542 11.694-12.483 5.976-4.94 12.472-6.5 15.85-8.06 3.378-1.562 1.04 15.342 6.236 7.02 4.936-8.062 27.802-4.16 27.282-10.922-.26-6.762-14.29-.26-21.307-4.68-7.015-4.162 8.055-5.202 7.276-10.663-.52-5.46-25.722 5.2-24.423-1.56 1.3-6.762 31.96-8.582 45.212-9.102 13.25-.52 12.47-1.56 20.006-9.62 7.275-8.063 3.378-10.143-5.457-17.425-8.835-7.28-.78-19.243-2.86-23.144-2.08-3.9-11.172 2.08-14.03 3.64-2.6 1.303-9.614 1.823-10.653-7.02-.78-8.84-12.732-7.54-26.503-10.4-14.032-2.86-13.772 23.144-13.772 32.505 0 9.362-11.432 11.443-16.628 13.263-5.197 1.82-1.04 9.362-4.417 13.263-3.378 3.9-12.213-2.08-17.41-6.5-5.196-4.16-2.858-14.303-2.858-14.303s-3.638-.52-13.25-2.34c-9.616-1.82-18.45-11.183-16.63-22.365 1.557-10.92 23.903-20.803 38.714-21.584 15.07-.78 9.614-11.442 12.212-12.742 2.598-1.3 7.535 4.68 7.535 4.68s8.575-6.24 15.33-7.28c6.756-1.04 18.45-8.582 15.85-12.483-2.6-4.16-18.19 4.682-24.944 5.462-6.755.78-3.637-11.442-5.716-15.863-1.82-4.422-7.017-1.04-9.615 0s-10.134 19.503-16.89 21.063c-6.755 1.56-7.794-4.16-20.266-4.94-12.215-.52-17.67 1.56-27.285 6.24-9.614 4.42-41.574-11.702-55.085-15.603-13.77-3.9-60.8 8.842-63.92 8.062-3.117-.78-6.495-11.702-13.77-13.263-7.276-1.56-55.865 4.68-55.865 4.68-26.503-.26-43.912 5.72-39.755 9.103 4.158 3.12.78 10.922-1.04 12.742-2.078 1.82-3.117-3.9-15.59-3.64-12.212.26-4.157 9.102-2.078 10.142 2.08 1.04 11.433-6.762 12.472-2.86 1.04 3.64-8.055 8.58-24.424 10.66-16.37 2.08-12.992 18.202-10.134 18.982 2.858.78 2.858 5.202 5.197 7.282 2.338 2.08 15.85-2.86 24.684-8.06 8.575-4.942 9.614-2.082 11.693-.52 2.078 1.3 5.976-4.422 14.29-6.242 8.315-1.82 34.3 1.04 34.3 4.94.26 3.9 7.274 3.38 12.99 8.582 5.717 5.2 1.56 18.204.78 24.185-.78 5.72 2.6 23.664 2.858 29.905 0 5.98-4.677 4.16-11.952 16.383C90.26 217.48 76.49 232.3 74.93 250.246c-1.56 17.683 17.41 30.685 17.41 30.685-1.04 24.187 1.818 47.33 4.416 44.21 2.6-3.12-4.157-33.026 1.82-37.187 5.976-4.16 9.873 15.083 11.432 18.984 1.56 3.9 20.007 25.225 21.826 37.968 1.82 12.742 1.3 12.742 14.03 27.045 12.733 14.302 39.756 5.98 39.756 5.98 8.055 11.703 21.307 13.783 28.063 14.303 6.755.52 6.236 3.38 11.432 8.842 5.197 5.46 10.394 14.563 16.63 18.984 1.56 1.3 3.378 2.34 4.937 3.12-1.82 5.46 1.56 13.52 3.637 18.202 3.116 7.02-10.655 22.364-19.49 32.766-8.834 10.4 0 10.92 0 17.423 0 6.5-14.03 5.46-5.456 13.523 8.835 8.062 14.29 25.485 23.645 39.788 9.093 14.304 27.542 23.146 37.675 28.347 10.134 5.46 11.433 11.18 8.055 36.146-3.636 24.965 5.718 91.538 6.497 98.82.78 7.28 11.693 10.402 14.29 19.243 2.6 8.58-4.416 10.66-4.156 18.463 0 7.8 16.63 26.524 27.285 34.586 10.653 8.06 15.33 1.56 10.653-1.56s-1.04-12.743 0-16.384c1.04-3.64.78-10.142-3.638-13.522-4.418-3.12-2.6-3.9 1.818-11.443 4.677-7.54-1.3-12.74-5.976-15.342-4.677-2.6 0-14.042 3.637-9.1 3.636 4.94 12.99 1.56 11.69-2.082-1.3-3.64-.52-9.362 5.458-7.28 5.975 1.82 17.408-16.125 9.613-20.285-7.535-3.9-5.456-10.66-5.456-10.66s3.638 1.04 11.952 3.9c8.055 2.86 11.953-6.242 20.268-17.424C407 647.864 409.6 633.04 409.08 623.16c-.26-9.623 15.33-8.063 26.502-14.304 11.173-6.24 14.03-14.823 13.512-32.507-.52-17.685 11.173-41.09 16.11-47.07 4.936-5.72 8.834-15.604 2.338-26.266-5.716-11.702-39.235-15.603-39.235-15.603s-3.378.78-14.29-6.76h-.001zM637.994 63.528c4.937-6.24 1.56-23.925 8.055-24.185 6.234-.26 21.305 0 22.084-9.36.78-9.363 11.173-13.264 14.81-15.345 3.64-1.82-2.857-11.442-19.227-9.36-16.37 1.82-35.597 4.68-61.58 1.56-26.244-2.862-22.867-5.462-36.898-1.3-14.03 4.16-23.906-1.042-36.118-1.562-12.212-.52-27.802-5.46-40.794-2.6-12.993 2.6-20.008 9.882-30.142 10.402-8.315.26-35.597 0-34.038 7.54 1.56 7.543 10.133 8.063 14.81 10.924 4.417 2.6 12.732 2.86 17.67.78 4.936-2.08 22.345-9.362 35.337-12.223 12.99-2.6 31.96-10.404 33.26-4.683 1.298 5.72 1.298 13.523-10.914 13.263-12.212-.26-19.227 4.682-16.63 7.542 2.6 2.86 25.985-8.32 32.22 5.202 5.977 13.522 14.29 26.005 6.237 28.865-8.056 2.86-19.75-4.423-16.63 5.46 3.117 9.88 7.794 35.626 21.046 36.667 13.252 1.04 11.173-20.545 24.165-24.445 12.992-3.9 30.142-9.102 33.26-15.083 2.078-5.98 35.077-2.08 40.014-8.063h.002l.001.004zm684.148 255.632c11.952-11.964-20.007-37.71-20.267-45.25-.26-7.542 9.614-14.303.52-13.003-9.095 1.3-19.23 1.04-23.386-2.6-4.16-3.9 12.73-30.946 18.706-33.027 5.717-2.08 1.82 3.64 4.158 10.662 2.078 7.022 10.653-1.3 16.89-.78 6.235.52 7.534 11.702 12.99 16.903 5.457 5.2-4.157 8.582 3.638 18.204 7.796 9.36 8.575-1.3 15.07-13.265 6.237-11.962-15.85-16.123-20.786-22.884-4.937-6.76-2.338-10.92 12.732-16.382 15.07-5.462 8.314-10.664 14.29-19.245 5.976-8.582-3.898-27.046-17.93-35.887-14.03-8.842-21.565.26-29.62-6.242-8.315-6.76 0-19.503 11.173-27.565 11.174-8.06 22.347-2.6 34.56 2.86 12.212 5.72 9.614-8.58 11.953-14.822 2.078-5.983 7.275-3.642 11.432 0 4.158 3.64 6.496-6.503 13.512-3.122 7.015 3.38 6.236 10.662.26 15.343-5.977 4.68 6.755 25.745 8.834 33.287 2.08 7.54 18.45 17.683 23.906 10.662 5.197-7.023 2.08-24.446-5.197-26.787-7.276-2.34-9.874-9.36-11.174-14.042-1.04-4.42 10.913-12.482 16.63-13.522 5.716-1.04-.52 7.8 1.56 9.1 2.078 1.3 8.833-8.06 16.628-11.7 7.536-3.382-5.196-12.484-11.952-16.385-6.756-3.9 1.56-3.12 3.378-6.76 1.82-3.642 16.89 1.04 23.126 3.12 6.236 2.08 9.874-.78 2.34-7.542-7.277-6.5-21.308-3.12-28.323-2.34-7.276.52-46.77-10.662-53.527-13.262-7.015-2.6-8.574 7.802-21.046 4.94-12.213-2.86-50.928-10.4-63.92-8.84-12.992 1.56-40.015-4.682-49.11-7.282-9.093-2.6-16.11 5.46-21.305 9.362-5.197 3.64-14.81-2.08-31.18-3.9-16.63-1.56-14.292-8.843-23.906-6.502-9.615 2.34-23.906 3.9-33 0-9.095-3.9-21.307-.26-30.4-.26-9.096 0 1.3-7.022 4.156-11.963 2.858-4.94-12.992-5.72-23.385-5.98-10.133-.26-35.077-.52-40.014 5.72-4.937 6.24-50.668-1.56-45.99 11.182 4.676 12.743 1.298 19.244-2.08 20.544-3.378 1.3-9.873-23.404-12.472-17.943-2.598 5.46 10.913 22.364 6.236 24.965-4.676 2.6-8.833 0-10.132-7.282-1.3-7.28-5.717-22.103-19.488-20.283-13.77 1.82 7.275 16.904 7.275 19.244 0 2.343-8.054 6.243-20.007 4.423-11.952-2.08-12.732-9.882-15.07-8.062-2.34 1.82-12.473 9.623-25.204 8.063-12.473-1.56-17.93 2.6-26.764 5.46-8.834 2.862-25.204 16.644-33 14.824-7.794-1.82-14.81-7.54-11.43-12.482 3.117-4.94 12.99-14.823 18.707-14.563 5.716.26 3.118-7.54-4.677-11.182-7.795-3.64-52.487 5.462-63.66 5.722-11.173.26-33.26 4.16-31.44 12.742 2.598 11.702-18.45 15.863-29.622 22.885-11.172 7.02.78 17.162 14.55 17.162 13.773 0 6.757 8.582 17.15 13.523 10.134 4.68 22.086-7.282 18.71-21.585-3.12-14.302 6.495-10.402 15.85-15.603 9.093-5.2 7.794 4.42 4.676 8.842-3.118 4.16-2.6 10.4 1.82 14.302 4.416 3.9 11.95-10.402 17.408-1.56 5.456 8.84-7.796 7.02-12.213 7.54-4.16.52 3.376 13.524-4.68 14.044-8.054.52-6.235 9.102-8.833 13.002-2.6 3.9-10.134-2.6-15.33-1.3-5.197 1.3-5.977 8.842-14.55 2.6-8.316-6.24-23.646-.26-30.142-1.3-2.34-.26-4.418-8.32-3.378-14.042.26-1.3-2.08 1.56-3.118 2.34-2.34 1.3-3.64 11.962-4.418 15.343-1.56 8.06-25.984 15.602-34.56 16.902-8.573 1.04-12.21 8.322-7.014 12.223 5.196 3.9 9.873 12.222 6.495 19.504-3.378 7.28-12.992 2.86-25.464-.52-12.47-3.12-9.094 10.66-9.614 24.183-.52 13.524 9.094 7.543 22.606 8.843 13.25 1.3 16.37 1.3 19.747-1.56 3.377-2.86-2.86-11.182 4.936-14.043 7.795-2.6 9.094-10.142 12.212-14.043 3.117-3.9 12.47 5.982 18.188 6.762 5.716.52 2.08-4.162 9.354-4.422 7.015-.26 8.315 8.32 15.07 12.222 6.756 3.64 16.37 11.963 19.228 14.043 2.858 2.08-8.055 6.24-10.393 11.962-2.34 5.72 9.614-3.9 14.29-8.58 4.418-4.682 1.3-9.103-3.117-14.044-4.417-4.68-24.425-19.503-17.67-23.664 6.757-4.16 28.063 9.62 32.48 13.522 4.418 3.9.78 13 3.898 19.763 2.858 6.76 9.614 14.563 17.15 10.402 7.534-4.16-1.82-11.702 10.393-15.083 12.212-3.38 3.12 13.783 11.952 19.504 8.834 5.72 17.41 5.2 29.102 2.08 11.952-2.86 15.59-1.56 18.188 10.142 2.598 11.702-12.732 22.625-28.842 24.965s-41.053-5.72-50.667-11.182c-9.354-5.2-8.834 13.784-19.747 12.743-10.913-1.04-21.826-7.02-29.102-13.262-7.275-5.98-6.496-15.082-9.354-21.584-2.858-6.5-29.36 2.08-33 5.462-3.637 3.12-16.888 2.6-34.297.78-17.41-1.82-18.968 6.76-25.724 17.683-6.758 10.923-5.718 19.505-21.05 26.526-15.33 7.023-23.384 35.628-22.604 43.17.78 7.54-.52 20.544-4.158 30.166-3.64 9.883 1.038 13.264 12.21 28.347 11.174 15.083 26.245 32.246 41.055 32.246 14.81 0 24.165-5.98 30.14-6.76 5.978-.783 20.27-8.064 27.804 2.08 7.534 10.14 15.33 5.2 23.644 8.84 8.316 3.64 7.276 15.603 1.82 27.045-5.457 11.44 11.95 19.243 23.385 32.245 11.433 13.263.78 43.95-3.378 51.75-4.417 7.802-4.157 17.164 4.157 27.826 8.315 10.663 7.016 21.585 9.095 37.97 2.077 16.382 8.573 15.602 12.21 25.484 3.38 9.882.78 25.225 14.03 28.085 13.254 2.86 24.946-6.762 34.56-7.802s16.89-19.504 23.386-24.705c6.494-4.94 9.612-21.584 17.407-26.265 7.796-4.68 2.86-10.402 0-20.284-2.858-9.883 16.63-22.106 29.622-38.49 12.99-16.382 2.597-26.004-3.12-42.387-5.716-16.124.52-15.083 22.347-35.627 21.826-20.543 35.077-52.01 35.597-63.192.52-10.922-21.048-8.322-30.92-7.54-9.875.78-16.11-1.822-17.41-14.304-1.3-12.483-9.614-14.563-20.268-25.745-10.653-11.183-34.038-62.154-21.566-65.534 12.733-3.12 26.764 30.167 36.378 39.27 9.354 9.1 21.566 16.382 27.803 31.205 6.237 14.823 14.292 11.962 36.897.78 22.866-11.182 24.944-12.483 35.338-20.544 10.393-8.06 1.82-9.36-7.016-15.602-8.835-6.242-8.835-12.483-12.992-16.384-4.158-3.9-3.378 11.182-12.732 14.302-9.355 3.12-11.433-9.102-17.93-14.563-6.235-5.462-9.093-26.266-8.834-30.687.26-4.42 8.315 2.34 15.33 8.582 7.016 6.24 11.693.52 22.087 1.3 10.392.78 9.093 4.68 15.59 8.582 6.495 3.9 19.227 11.442 33.258 11.182 14.03 0 14.03 10.14 20.787 11.702 6.496 1.56 9.614 8.84 13.51 13.522 3.9 4.68 7.537-3.38 12.214-3.38 4.676 0 7.274 4.94 4.935 11.962-2.34 7.02 1.3 14.823 5.456 23.144 3.898 8.322 11.433 29.646 14.03 37.448 2.34 7.8 10.914 5.72 17.67 1.56 6.756-4.16.52-22.624 0-31.466-.78-8.842 10.134-21.064 18.188-25.225 8.055-4.16 14.55-20.545 26.504-21.585 12.212-.78 19.487 9.362 23.125 16.903 3.637 7.542 10.652 7.28 12.47 11.442 1.82 4.16-2.337 12.743 3.12 13.003 5.456.26 9.353-3.38 14.29 6.762 4.677 10.142-1.56 29.386 3.378 30.166 4.938.78 4.158-24.704 9.095-25.224 4.937-.52 18.19 21.584 27.023 26.265 8.835 4.68 15.33-17.942 20.008-25.224 4.677-7.28-23.905-31.206-23.905-42.128 0-10.662 9.615-10.402 18.45-6.24 8.833 4.16 7.274 13.26 8.833 16.122 1.56 2.86 5.457-11.182 10.914-20.284 7.015-7.54 22.345-10.402 34.298-22.104l.007-.002.006.003z' id='Shape'></path>
+                              <path d='M952.915 547.224c-1.3-1.04-7.275 4.68-7.535 10.402-.26 5.72-13.77 9.362-17.93 11.182-3.896 1.82-1.558 6.5-1.298 13.003.26 6.243 1.3 14.044-6.236 17.165-7.535 3.12.52 18.464 4.417 24.445 3.898 5.98 16.63.26 15.59-8.063-1.04-8.582 11.693-29.906 11.693-29.906s.52-1.56 4.157-9.88c3.638-8.84-.52-26.525-2.858-28.345v-.003zm375.203-205.7c.52-2.08.52-2.6.52-2.6s.52-5.723 2.078-7.283c1.3-1.56-.26-4.16-1.818-3.64-1.56.52-5.197 2.34-4.158 3.9 1.04 1.56-.26 2.863-1.3 4.163-1.038 1.04-2.078 1.82-1.558 2.6.52.78 2.598 3.38 1.82 4.68-.78 1.302-.52 3.122 0 3.122.778-.26 3.896-3.12 4.416-4.94v-.002zm-91.982 124.044c-3.637-1.3-12.992-9.362-15.33-13.263-2.34-3.9-9.614-6.76-11.693-5.46-3.118 2.08 18.19 27.044 21.567 33.285 3.378 6.242 14.29 33.807 24.944 30.687 10.653-2.86 6.496-10.663 0-21.325-6.756-10.662-15.85-22.364-19.488-23.924zm53.526 30.686c9.354.52 13.772 3.64 14.032-1.3.26-4.682 3.118-9.362 9.613-15.344 6.496-5.72 5.717-11.962 3.118-20.544-2.598-8.58 0-11.182 2.6-18.203 2.597-7.022-11.954-15.083-11.954-15.083s-7.013 14.303-19.225 16.123c-12.213 1.82-7.796 4.42-9.614 10.662-1.82 6.24-5.196 11.182-12.73 11.442-7.537.26-1.82 20.544 2.077 27.306 4.158 7.54 12.992 4.68 22.086 4.94l-.003.001zm193.578 1.3c-6.236-3.12-8.575-9.622-12.472-14.563-3.898-5.2-21.826-6.24-35.598-10.92-13.77-4.42-23.385-4.94-24.164-.78-.78 4.42-7.795 11.96-12.472 15.083-4.418 3.12-10.394-14.303-16.37-20.024-5.976-5.46-12.472 3.9-12.472 3.9.78 9.62 11.952 7.8 10.393 11.442-1.56 3.64 5.976 9.883 16.37 10.143 10.133.52 18.448 1.04 24.684 3.64 5.975 2.86 2.077 12.223 15.07 16.384 12.73 4.16 22.604-4.68 28.84-7.023 6.237-2.34 18.71 7.802 26.244 11.443 7.535 3.38 9.874-2.08 11.433-5.722 1.3-3.38-12.992-9.88-19.488-13.002v-.002l.002.001zm-12.992 97c-5.196-2.34-8.834-11.443-10.133-16.644-1.3-5.2-9.614-8.842-9.614-8.842 4.94-17.683-8.833-43.168-12.99-41.608-4.157 1.56-4.157 19.504-10.393 31.726-5.977 12.483-19.748 1.3-25.205-2.34-5.455-3.9 3.12-22.625 2.34-24.445-.52-1.82-8.834-1.04-15.33-1.82s-20.268 11.444-21.827 16.645c-1.56 5.2-1.56 3.9-7.535 2.08-5.976-1.82-1.56-7.02-9.094-7.02-7.275 0-11.693 16.642-12.992 17.942-1.3 1.3-3.897-8.06-7.275-2.34-3.38 5.46-4.418 9.622-11.174 15.863-6.756 6.24-36.897 16.382-42.613 23.924-5.716 7.54-3.897 43.428-2.598 50.19 1.3 6.76-1.3 10.402-4.417 10.922-2.858.26 2.858 5.2 10.394 4.68 7.274-.26 14.03-5.98 32.998-10.14 18.968-4.162 16.89-7.023 28.842-9.623 12.212-2.6 18.188 2.08 21.826 5.72 3.378 3.902 4.937 10.923 8.574 11.183 3.638 0 15.33-7.54 15.33-7.54s-3.377 9.1-3.897 16.122c-.52 7.02 5.716 13.262 16.89 15.603 11.172 2.34 13.25 5.203 33-4.68 19.746-9.88 34.297-36.666 41.572-53.31 7.276-16.903.52-29.905-4.677-32.246h-.002v-.002zM679.308 169.37c3.898.26 5.717 2.08 5.717-.78 0-2.862 1.3-5.982 3.897-9.623 2.6-3.64 2.34-7.54 1.3-13.003-1.04-5.46 0-7.02 1.04-11.442 1.038-4.42-4.938-9.362-4.938-9.362s-2.858 9.102-8.055 10.142c-4.94 1.04-3.12 2.86-3.9 6.762-.78 3.9-2.078 7.02-5.196 7.28-3.118.26-.78 13.004.78 17.425 1.818 4.42 5.456 2.34 9.353 2.6l.002.001zm-15.33-3.382l-3.898-16.903-5.716-4.42s-2.08 5.2-5.197 14.302c-3.118 9.102 5.197 9.102 5.197 9.102l9.614-2.083v.002zm926.055 507.102c2.338 2.6 8.314 16.122 12.472 16.642 4.157.52 10.653-3.64 11.173 0 .52 3.64 0 21.324-7.796 23.405-7.795 2.08-13.51 4.42-16.11 9.36-2.598 4.942-4.157 1.302-4.157-5.46 0-6.5-1.3-8.84-4.157-13.002-2.858-4.16 1.82-7.542 2.858-11.443 1.04-3.9 2.34-8.58 0-16.383-2.08-7.803 1.56-7.543 5.717-3.12v.001zm-9.355 51.49c-3.118-4.942-3.897-11.704-7.015-9.883-3.118 1.82-7.276 19.244-10.913 23.144-3.638 3.903-24.685 18.206-27.283 22.887-2.598 4.68-3.898 17.683 0 20.284 3.898 2.6 9.874 3.9 13.51 3.12 3.64-.78 9.096-11.7 11.694-17.682 2.6-5.98 5.2-9.102 9.876-13.003 4.677-3.9 7.275-7.8 5.716-11.702-1.558-3.9 4.418-8.32 4.418-8.32v-8.843h-.002l-.001-.002zm-151.744-29.907s-15.07 3.9-13.51 6.5c1.298 2.602 12.99 13.784 13.51 10.143.52-3.64 2.6-13.523 0-16.643zm-77.95-410.62c.52 2.34 3.118-3.38 6.236-.78 3.378 2.6 2.858 6.5 2.858 6.5s5.456-3.64 5.197-6.24c-.26-2.6-5.197-6.503-7.795-5.723-2.6.78-7.016 2.6-6.496 6.242v.001zm.52-10.403s7.275.52 12.212-3.9c6.755-5.722 8.574-5.462 8.574-5.462s5.197-.52 5.197-5.2c0-4.422 11.173-23.146 8.574-29.387-1.557-3.64 4.68 1.04 4.68 3.643-.26 2.6 4.677 9.362 1.56 11.442-3.12 2.08-1.56 14.303-2.34 16.903-.78 2.6-9.094 16.123-14.03 14.043-4.938-2.08-12.213-1.56-14.03-1.3-1.82.26-9.616 3.38-10.396-.78l-.001-.002zm40.794-65.273c1.3 1.04 4.417 6.76 6.495 7.02 1.82 0 4.677-2.08 5.197-.52.52 1.56 1.04 9.623-2.338 10.923-3.378 1.3-5.977 2.6-6.756 4.94-.78 2.342-1.82.78-2.08-2.34-.26-2.86-1.038-3.9-2.337-5.72-1.56-1.82.517-3.38.777-5.2.26-1.822.78-3.902-.78-7.283-1.818-3.64-.26-3.64 1.82-1.82h.002zm-123.682 298.02c-4.677 1.56 28.582 12.48 36.377 11.7 7.795-.78 42.873-5.72 42.873-5.72s-19.228-2.08-28.322-1.04c-9.355.78-37.677-9.622-50.928-4.94zm50.928-23.407c-2.08 2.08-13.772 14.824-8.055 14.564 5.714-.26 10.91 5.46 10.91 2.86s-3.117-8.32-3.117-8.32 7.535 5.46 10.913 5.46-3.898-9.362-3.898-9.362l-6.756-5.2.002-.002h.001zm4.416-4.16l9.874 4.16s7.276-1.82 3.118-4.16c-4.157-2.34-12.99 0-12.99 0h-.002zm-196.955-58.25c-7.275-1.302-2.858 8.58 0 8.58s10.653-6.5 0-8.58zM753.88 248.165l3.64-3.38.778-4.422s-1.04-1.3-3.118-3.38c-1.82-2.08-1.82 4.16-1.82 4.16l.52 7.022zm-448.735 89.197c-5.197-2.6-5.717-3.64-5.717-3.64s-1.818-2.6-4.417-1.82c-2.596.78-16.11-1.82-18.966.52-1.56 1.3-1.04-2.6.52-3.12s3.638-3.902 5.716-2.602c2.078 1.3 8.314-1.56 10.133-1.56 1.56 0 11.692 2.08 12.212 4.94.52 2.86 3.118 6.502 3.638 7.542 1.04.78 1.04 1.82-3.118-.26h-.001zm10.653.78l-1.04 4.42s2.34.52 5.717 1.302c3.378.78 10.393-1.56 9.874-2.86-.52-1.3-2.34-6.502-7.797-7.022-5.457-.78-13.252 3.38-6.756 4.16h.002zM33.876 329.3c-2.858 2.6-16.63 3.64-11.952-2.08 4.677-5.72 5.197-6.24 8.315-4.68 3.116 1.56 3.635 6.76 3.635 6.76h.002zm-15.59-12.222c1.82-.52 8.055 2.34 4.677 3.64-3.378 1.3-3.638 1.56-4.677 0-.78-1.56 0-3.64 0-3.64zm-6.496-1.56c1.82-.26 7.795 1.3 4.677 2.08-3.118.78-3.637.78-4.677 0-1.04-.78 0-2.08 0-2.08zm-3.378-.78c-.26 1.04-3.118 3.64-3.118 1.56s0-2.34 1.04-2.34c1.04-.26 2.078.78 2.078.78z' id='Shape'></path>
+                            </g>
+                            <g id='Pins'>
+                              <g id='pins_dnd'>
+                                <g id='pin_paris_fr'>
+                                  <path d='M699.14 190h.003s-9.547-12.488-9.497-20.385c.03-5.123 4.158-9.615 9.495-9.615 5.336 0 9.676 4.78 9.676 9.315 0 8.125-9.677 20.685-9.677 20.685zm.057-14.895c2.963 0 5.364-2.432 5.364-5.43 0-3-2.4-5.432-5.362-5.432s-5.364 2.43-5.364 5.43c0 3 2.402 5.43 5.364 5.43v.002h-.002z' id='Shape'></path>
+                                </g>
+                              </g>
+                              <g id='pins_justbetter'>
+                                <g id='pin_paris_fr'>
+                                  <path d='M717.14 168h.003s-9.547-12.488-9.497-20.385c.03-5.123 4.158-9.615 9.495-9.615 5.336 0 9.676 4.78 9.676 9.315 0 8.125-9.677 20.685-9.677 20.685zm.057-14.895c2.963 0 5.364-2.432 5.364-5.43 0-3-2.4-5.432-5.362-5.432s-5.364 2.43-5.364 5.43c0 3 2.402 5.43 5.364 5.43v.002h-.002z' id='Shape'></path>
+                                </g>
+                              </g>
+                              <g id='pins_alpine'>
+                                <g id='pin_austin_tx'>
+                                  <path d='M167.495 307h.002s-9.547-12.488-9.497-20.385c.03-5.123 4.158-9.615 9.496-9.615 5.336 0 9.676 4.78 9.676 9.315 0 8.125-9.677 20.685-9.677 20.685zm.057-14.895c2.963 0 5.364-2.432 5.364-5.43 0-3-2.4-5.432-5.363-5.432-2.962 0-5.364 2.43-5.364 5.43 0 3 2.4 5.43 5.363 5.43v.002z' id='Shape'></path>
+                                </g>
+                              </g>
+                              <g id='pins_eystudio'>
+                                <g id='pin_kennesaw_ge'>
+                                  <path d='M255.495 277h.002s-9.547-12.488-9.497-20.385c.03-5.123 4.158-9.615 9.496-9.615 5.336 0 9.676 4.78 9.676 9.315 0 8.125-9.677 20.685-9.677 20.685zm.057-14.895c2.963 0 5.364-2.432 5.364-5.43 0-3-2.4-5.432-5.363-5.432-2.962 0-5.364 2.43-5.364 5.43 0 3 2.4 5.43 5.363 5.43v.002z' id='Shape'></path>
+                                </g>
+                              </g>
+                              <g id='pins_trollweb'>
+                                <g id='pin_sandnes_no'>
+                                  <path d='M726.14 117h.003s-9.547-12.488-9.497-20.385c.03-5.123 4.158-9.615 9.495-9.615 5.336 0 9.676 4.78 9.676 9.315 0 8.125-9.677 20.685-9.677 20.685zm.057-14.895c2.963 0 5.364-2.432 5.364-5.43 0-3-2.4-5.432-5.362-5.432s-5.364 2.43-5.364 5.43c0 3 2.402 5.43 5.364 5.43v.002h-.002z' id='Shape'></path>
+                                </g>
+                              </g>
+                              <g id='pins_convertgroup'>
+                                <g id='pin_sandnes_no'>
+                                  <path d='M750.14 122h.003s-9.547-12.488-9.497-20.385c.03-5.123 4.158-9.615 9.495-9.615 5.336 0 9.676 4.78 9.676 9.315 0 8.125-9.677 20.685-9.677 20.685zm.057-14.895c2.963 0 5.364-2.432 5.364-5.43 0-3-2.4-5.432-5.362-5.432s-5.364 2.43-5.364 5.43c0 3 2.402 5.43 5.364 5.43v.002h-.002z' id='Shape'></path>
+                                </g>
+                              </g>
+                              <g id='pins_inviqa'>
+                                <g id='pin_munich_ge'>
+                                  <path d='M753.14 195h.003s-9.547-12.488-9.497-20.385c.03-5.123 4.158-9.615 9.495-9.615 5.336 0 9.676 4.78 9.676 9.315 0 8.125-9.677 20.685-9.677 20.685zm.057-14.895c2.963 0 5.364-2.432 5.364-5.43 0-3-2.4-5.432-5.362-5.432s-5.364 2.43-5.364 5.43c0 3 2.402 5.43 5.364 5.43v.002h-.002z' id='Shape'></path>
+                                </g>
+                                <g id='pin_berlin_ge'>
+                                  <path d='M770.14 182h.003s-9.547-12.488-9.497-20.385c.03-5.123 4.158-9.615 9.495-9.615 5.336 0 9.676 4.78 9.676 9.315 0 8.125-9.677 20.685-9.677 20.685zm.057-14.895c2.963 0 5.364-2.432 5.364-5.43 0-3-2.4-5.432-5.362-5.432s-5.364 2.43-5.364 5.43c0 3 2.402 5.43 5.364 5.43v.002h-.002z' id='Shape'></path>
+                                </g>
+                                <g id='pin_slovakia_sl'>
+                                  <path d='M796.14 190h.003s-9.547-12.488-9.497-20.385c.03-5.123 4.158-9.615 9.495-9.615 5.336 0 9.676 4.78 9.676 9.315 0 8.125-9.677 20.685-9.677 20.685zm.057-14.895c2.963 0 5.364-2.432 5.364-5.43 0-3-2.4-5.432-5.362-5.432s-5.364 2.43-5.364 5.43c0 3 2.402 5.43 5.364 5.43v.002h-.002z' id='Shape'></path>
+                                </g>
+                                <g id='pin_hungaria_hu'>
+                                  <path d='M795.495 206h.002s-9.547-12.488-9.497-20.385c.03-5.123 4.158-9.615 9.496-9.615 5.336 0 9.676 4.78 9.676 9.315 0 8.125-9.677 20.685-9.677 20.685zm.057-14.895c2.963 0 5.364-2.432 5.364-5.43 0-3-2.4-5.432-5.363-5.432-2.962 0-5.364 2.43-5.364 5.43 0 3 2.4 5.43 5.363 5.43v.002z' id='Shape'></path>
+                                </g>
+                                <g id='pin_lithuania_li'>
+                                  <path d='M806.14 159h.003s-9.547-12.488-9.497-20.385c.03-5.123 4.158-9.615 9.495-9.615 5.336 0 9.676 4.78 9.676 9.315 0 8.125-9.677 20.685-9.677 20.685zm.057-14.895c2.963 0 5.364-2.432 5.364-5.43 0-3-2.4-5.432-5.362-5.432s-5.364 2.43-5.364 5.43c0 3 2.402 5.43 5.364 5.43v.002h-.002z' id='Shape'></path>
+                                </g>
+                                <g id='pins_london'>
+                                  <path d='M684.905 162.295h.002s-9.959-13.027-9.907-21.265c.031-5.344 4.338-10.03 9.906-10.03 5.567 0 10.094 4.987 10.094 9.717 0 8.476-10.095 21.578-10.095 21.578zm.06-15.538c3.09 0 5.595-2.537 5.595-5.664 0-3.13-2.503-5.667-5.594-5.667-3.09 0-5.596 2.535-5.596 5.665s2.506 5.665 5.596 5.665v.002l-.001-.001z' id='Shape'></path>
+                                </g>
+                              </g>
+                              <g id='pins_evolution7'>
+                                <g id='pin_melbourne_aus_2'>
+                                  <path d='M1407.14 682h.003s-9.547-12.488-9.497-20.385c.03-5.123 4.158-9.615 9.495-9.615 5.336 0 9.676 4.78 9.676 9.315 0 8.125-9.677 20.685-9.677 20.685zm.057-14.895c2.963 0 5.364-2.432 5.364-5.43 0-3-2.4-5.432-5.362-5.432s-5.364 2.43-5.364 5.43c0 3 2.402 5.43 5.364 5.43v.002h-.002z' id='Shape'></path>
+                                </g>
+                              </g>
+                              <g id='pins_balance'>
+                                <g id='pin_melbourne_aus'>
+                                  <path d='M1414.14 680h.003s-9.547-12.488-9.497-20.385c.03-5.123 4.158-9.615 9.495-9.615 5.336 0 9.676 4.78 9.676 9.315 0 8.125-9.677 20.685-9.677 20.685zm.057-14.895c2.963 0 5.364-2.432 5.364-5.43 0-3-2.4-5.432-5.362-5.432s-5.364 2.43-5.364 5.43c0 3 2.402 5.43 5.364 5.43v.002h-.002z' id='Shape'></path>
+                                </g>
+                                <g id='pin_brisbane_aus'>
+                                  <path d='M1472.14 611h.003s-9.547-12.488-9.497-20.385c.03-5.123 4.158-9.615 9.495-9.615 5.336 0 9.676 4.78 9.676 9.315 0 8.125-9.677 20.685-9.677 20.685zm.057-14.895c2.963 0 5.364-2.432 5.364-5.43 0-3-2.4-5.432-5.362-5.432s-5.364 2.43-5.364 5.43c0 3 2.402 5.43 5.364 5.43v.002h-.002z' id='Shape'></path>
+                                </g>
+                                <g id='pin_sydney_aus'>
+                                  <path d='M1452.14 650h.003s-9.547-12.488-9.497-20.385c.03-5.123 4.158-9.615 9.495-9.615 5.336 0 9.676 4.78 9.676 9.315 0 8.125-9.677 20.685-9.677 20.685zm.057-14.895c2.963 0 5.364-2.432 5.364-5.43 0-3-2.4-5.432-5.362-5.432s-5.364 2.43-5.364 5.43c0 3 2.402 5.43 5.364 5.43v.002h-.002z' id='Shape'></path>
+                                </g>
+                                <g id='pin_singapore_sin'>
+                                  <path d='M1223.14 454h.003s-9.547-12.488-9.497-20.385c.03-5.123 4.158-9.615 9.495-9.615 5.336 0 9.676 4.78 9.676 9.315 0 8.125-9.677 20.685-9.677 20.685zm.057-14.895c2.963 0 5.364-2.432 5.364-5.43 0-3-2.4-5.432-5.362-5.432s-5.364 2.43-5.364 5.43c0 3 2.402 5.43 5.364 5.43v.002h-.002z' id='Shape'></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class='col-md-12 testimonial'>
+          <div class='quote'>
+            <q>The Balance Internet team love using and recommending Algolia Search-As-You-Type extension on all our Magento 1 and Magento 2 projects. The extension is easy to install, configure and customise for our clients. The search functionality delivers a fantastic user experience that is lightning fast and relevant. Our customers love being able to include CMS pages, categories and products in their Magento site search. In the past 7 years, I haven't seen another Magento search extension / platform come close to Algolia from a performance, functionality and price perspective.</q>
+            <span class='cf'></span>
+            <div class='quote_author'>
+              <span class='avatar'>
+                <img alt='keiran-smith' src='/magento/img/partners/keiran-smith.jpg'>
+              </span>
+              <span class='name'>
+                <b>Kieran Smith</b>, Solutions Architect at Balance Internet
+              </span>
+            </div>
+          </div>
+          <div class='quote'>
+            <q>We were looking for a modern search solution, to match the growing needs of our customers regarding the way of searching within the Magento 1, Magento 2, Wordpress and Laravel. After trying several solutions, we found Algolia. Algolia is lightning fast and gives the most relevant search results! Algolia already created open-source implementations which are easy to install, configure and customize. Last but not least: the support is great, the pricing is good and our code contributions to the implementations are accepted very fast. Innovation is key for us. We are proud to be the first Dutch Algolia partner!</q>
+            <span class='cf'></span>
+            <div class='quote_author'>
+              <span class='avatar'>
+                <img alt='roy-duineveld' src='/magento/img/partners/roy-duineveld.jpg'>
+              </span>
+              <span class='name'>
+                <b>Roy Duineveld</b>, Full-Stack Developer at JustBetter
+              </span>
+            </div>
+          </div>
+          <div class='quote'>
+            <q>As one of the market leaders in Norway on eCommerce usability, conversion rate optimization and Magento development, we recommend Algolia search to our clients because we know it helps them increase usability and conversion rates on their webshops.</q>
+            <span class='cf'></span>
+            <div class='quote_author'>
+              <span class='avatar'>
+                <img alt='Ole Heintz' src='/magento/img/partners/ole_contact.jpg'>
+              </span>
+              <span class='name'>
+                <b>Ole Heintz</b>, CEO at Convert Group
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+  <section class='ac-footer'>
+  <div class='ac-footer-container'>
+    <p class='ac-footer-links'>
+      Code licensed under
+      <a class='ac-footer-link-item' href='https://github.com/algolia/algoliasearch-magento/blob/master/LICENSE.txt'>MIT</a>
+      <br>
+      <a class='ac-footer-link-item' href='https://github.com/algolia/algoliasearch-magento'>GitHub</a>
+      <a class='ac-footer-link-item' href='https://github.com/algolia/algoliasearch-magento/issues'>Issues</a>
+      <a class='ac-footer-link-item' href='https://www.algolia.com/policies/privacy'>Privacy Policy</a>
+    </p>
+  </div>
+  <div class='ac-footer-container ac-footer-brand'>
+    <p>This project is part of</p>
+    <img class='ac-footer-brand-icon' src='/magento/img/community-badge.svg' alt='Algolia Community badge'>
+    <figure>
+      <img class='ac-footer-brand-logo' src='https://res.cloudinary.com/hilnmyskv/image/upload/v1484219849/algolia-community-logo-words-darkbg.svg' alt='Algolia Community'>
+      <figcaption>Algolia Community</figcaption>
+    </figure>
+    <a class='ac-footer-btn ac-footer-btn-cta' href='https://community.algolia.com/'>See More</a>
+    <span class='ac-icon ac-icon-love-dark'></span>
+  </div>
+    <p class='ac-footer-version'>latest versions - M1 <span class="m1_version">1.8.0</span>, M2 <span class="m2_version">1.0.5</span></p>
+  <div class='ac-footer-actions'>
+    <div class='container'>
+      <p>Build unique search experience with Algolia</p>
+      <a class='ac-footer-btn ac-footer-btn-ghost-grey' href='https://www.algolia.com/why?utm_medium=social-owned&amp;utm_source=magento%20website&amp;utm_campaign=homepage&amp;utm_term=why'>
+        See Why
+        <span class='ac-icon-triangle'></span>
+      </a>
+      <a class='ac-footer-btn ac-footer-btn-ghost-pink' href='https://www.algolia.com/users/sign_up?utm_medium=social-owned&amp;utm_source=magento%20website&amp;utm_campaign=homepage&amp;utm_term=get_started'>Get Started For Free</a>
+    </div>
+  </div>
+</section>
+  
+  
+
+  
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-N8JP8G"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N8JP8G');</script>
+
+
+
+
+  
+
+  <script src="//cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
+  <script src="/magento/js/communityHeader.js"></script>
+  <script src="/magento/js/dropdown.js"></script>
+  <script src="/magento/js/main.js"></script>
+  
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+
+  <svg style="display:none;visibility:hidden">
+    <defs>
+      <symbol id="github-icon">
+        <svg viewBox="0 0 121 119" xmlns="http://www.w3.org/2000/svg"><g fill-rule="evenodd"><path d="M60.61.445C27.26.445.22 27.48.22 60.833c0 26.68 17.304 49.317 41.298 57.302 3.018.56 4.126-1.31 4.126-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.064.425 9.257 6.222 9.257 6.222 5.386 9.232 14.127 6.563 17.573 5.02.542-3.903 2.107-6.567 3.834-8.075-13.414-1.527-27.514-6.705-27.514-29.844 0-6.594 2.36-11.98 6.222-16.21-.627-1.52-2.694-7.663.585-15.98 0 0 5.07-1.624 16.61 6.19 4.818-1.34 9.984-2.01 15.116-2.033 5.13.023 10.3.694 15.127 2.032 11.526-7.814 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.592 15.98 3.87 4.23 6.214 9.616 6.214 16.21 0 23.193-14.127 28.3-27.574 29.795 2.166 1.874 4.096 5.55 4.096 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.087 3.49 4.148 2.897 23.98-7.994 41.262-30.622 41.262-57.294C120.996 27.48 93.96.445 60.61.445"/><path d="M23.093 87.15c-.133.3-.605.39-1.035.183-.438-.197-.684-.606-.542-.907.13-.31.603-.395 1.04-.188.44.197.69.61.537.91M25.54 89.877c-.29.267-.852.143-1.234-.28-.395-.42-.47-.983-.177-1.254.296-.267.842-.142 1.238.28.395.425.472.984.17 1.254M27.92 93.355c-.37.257-.975.016-1.35-.52-.37-.538-.37-1.182.01-1.44.374-.258.97-.026 1.35.507.368.546.368 1.19-.01 1.453M31.182 96.715c-.33.365-1.036.267-1.552-.23-.528-.488-.675-1.18-.343-1.544.335-.365 1.044-.262 1.564.232.525.486.685 1.182.332 1.543M35.682 98.666c-.146.473-.825.688-1.51.487-.682-.207-1.13-.76-.99-1.24.14-.475.823-.7 1.512-.484.682.205 1.13.755.988 1.236M40.624 99.028c.017.498-.563.91-1.28.92-.723.016-1.307-.387-1.315-.877 0-.502.566-.91 1.288-.923.718-.014 1.306.386 1.306.88M45.223 98.245c.086.486-.413.985-1.126 1.118-.7.128-1.35-.172-1.44-.654-.086-.5.422-.998 1.122-1.127.713-.124 1.352.168 1.443.662"/></g></svg>
+      </symbol>
+
+      <symbol id="illu-fast-relevance">
+        <svg viewBox="0 0 44 43" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M6.512 10.115c-.487-.96-.872-1.967-1.15-3.006h3.473v1.43c0 1.946.437 3.79 1.21 5.443-1.432-.783-2.602-2.067-3.533-3.87M34.827 8.54V7.11H38.3c-.278 1.038-.663 2.045-1.15 3.004-.93 1.802-2.1 3.086-3.532 3.87.797-1.704 1.21-3.563 1.21-5.445m7.788-3.195c.053-.547-.128-1.09-.497-1.5-.37-.406-.894-.64-1.444-.64h-5.85v-2.6H8.836v2.6H2.988c-.55 0-1.075.233-1.444.64-.37.408-.55.953-.496 1.5.984 10.19 7.47 13.024 17.367 15.64 2.27 4.62.3 9.893-3.367 10.722-.593.133-1.015.66-1.014 1.268v1.445H29.63v-1.444c0-.61-.422-1.134-1.015-1.268-3.667-.83-5.638-6.103-3.367-10.722 9.896-2.616 16.383-5.45 17.368-15.64"/><path d="M34.827 40.923c0 .718-.582 1.3-1.3 1.3H10.134c-.718 0-1.3-.582-1.3-1.3V35.72c0-.718.582-1.3 1.3-1.3h23.393c.718 0 1.3.582 1.3 1.3v5.203z" fill="none"/><path d="M38.02 26.69c.032-.005.056-.032.056-.065v-.016c0-.033-.023-.06-.055-.066-1.807-.272-2.85-1.313-3.12-3.123-.004-.03-.03-.055-.064-.055h-.016c-.033 0-.06.024-.065.056-.272 1.81-1.312 2.85-3.122 3.124-.03.005-.054.032-.055.064v.015c0 .033.023.06.056.065 1.81.272 2.85 1.313 3.12 3.124.005.032.033.055.065.055h.02c.03 0 .053-.022.058-.05.27-1.815 1.31-2.858 3.12-3.13m-26.023-1.904c.052-.007.09-.05.09-.103v-.027c0-.052-.04-.095-.09-.102-2.895-.433-4.56-2.1-4.994-4.996-.006-.05-.05-.09-.1-.09h-.027c-.052 0-.096.038-.103.09-.435 2.897-2.1 4.563-4.995 4.998-.05.008-.088.052-.088.103v.027c0 .05.037.095.088.103 2.896.434 4.56 2.1 4.994 4.998.006.052.05.09.1.09h.04c.045 0 .084-.034.09-.08.43-2.902 2.095-4.572 4.994-5.007"/></g></svg>
+      </symbol>
+
+      <symbol id="illu-analytics">
+        <svg  viewBox="0 0 46 47" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M28.03 24.716h-7.798v17.557h7.798V24.716zM16.333 31.22H8.535v10.403h7.798V31.22zM39.726 9.76H31.93v31.863h7.796V9.76z" stroke-width="1.3"/><path d="M4.636 41.623V3.907c0-.718-.582-1.3-1.3-1.3-.718 0-1.3.582-1.3 1.3v40.317h40.29c.718 0 1.3-.582 1.3-1.3 0-.718-.582-1.3-1.3-1.3H4.636z" stroke="#FFF" stroke-width="4"/><path d="M4.636 41.623V3.907c0-.718-.582-1.3-1.3-1.3-.718 0-1.3.582-1.3 1.3v40.317h40.29c.718 0 1.3-.582 1.3-1.3 0-.718-.582-1.3-1.3-1.3H4.636z" stroke-width="1.3" fill="#FCFCFD"/><path d="M32.755 16.695c.26-5.925-4.325-10.94-10.246-11.203-5.92-.262-10.934 4.328-11.196 10.253-.082 1.78.283 3.55 1.06 5.154l-9.29 9.32c.747 2.232 2.236 3.72 4.47 4.46l9.13-9.16c1.486.862 3.16 1.35 4.875 1.427 5.92.26 10.932-4.33 11.194-10.253" stroke="#FFF" stroke-width="4"/><path d="M32.755 16.695c.26-5.925-4.325-10.94-10.246-11.203-5.92-.262-10.934 4.328-11.196 10.253-.082 1.78.283 3.55 1.06 5.154l-9.29 9.32c.747 2.232 2.236 3.72 4.47 4.46l9.13-9.16c1.486.862 3.16 1.35 4.875 1.427 5.92.26 10.932-4.33 11.194-10.253" stroke-width="1.3"/><path d="M29.69 16.56c-.186 4.23-3.766 7.507-7.995 7.322-4.228-.187-7.504-3.77-7.317-8 .09-2.032.98-3.945 2.48-5.32 1.5-1.373 3.484-2.094 5.516-2.005 2.03.09 3.944.985 5.316 2.486 1.372 1.5 2.092 3.485 2 5.516" stroke-width="1.3" fill="#FCFCFD"/><path d="M12.376 20.9l-9.29 9.32c.746 2.233 2.236 3.72 4.47 4.462l9.13-9.16c-1.867-1.075-3.368-2.686-4.31-4.623" stroke-width="1.3"/><path d="M14.713 27.5l1.972-1.98c-1.866-1.075-3.367-2.684-4.31-4.62l-2.132 2.14 4.47 4.46z" stroke-width="1.3"/></g></svg>
+      </symbol>
+
+
+      <symbol id="illu-typo-tolerance">
+        <svg viewBox="0 0 32 43" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M9.628 28.755h3.215l.18-23.96H5.74l-.177 4.56H1.096l.18-8.224H29.64l.177 8.226H25.35l-.178-4.56h-7.147l-.178 23.96h3.618v3.666H9.628zM.47 41.563c3.69 0 1.23-4.615 4.714-4.615 3.485 0 .82 4.615 4.92 4.615 4.098 0 1.844-4.615 5.533-4.615 3.69 0 1.487 4.615 5.022 4.615 3.534 0 2.456-4.615 5.224-4.615 2.767 0 1.025 4.615 5.124 4.615"/></g></svg>
+      </symbol>
+
+      <symbol id="illu-faceting">
+        <svg viewBox="0 0 40 42" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M38.99 27.323l-7.32 10.08-11.84 3.85-11.84-3.85-7.318-10.08V14.865l7.32-10.08 11.84-3.85 11.84 3.85 7.317 10.08z"/><path d="M32.13 17.03l6.86-2.165-7.32-10.08L19.83.935v7.153"/><path d="M27.432 31.498l4.24 5.905 7.317-10.08V14.865l-6.86 2.165zM27.432 31.498l4.24 5.905-11.84 3.85-11.84-3.85 4.238-5.905h15.202zM7.532 17.03l-6.86-2.165v12.458l7.318 10.08 4.24-5.905L7.532 17.03z"/><path d="M12.23 31.498L7.532 17.03l12.3-8.942L32.13 17.03l-4.698 14.468z"/></g></svg>
+      </symbol>
+
+      <symbol id="illu-rocket">
+        <svg viewBox="0 0 44 51" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M12.093 13.826c0-.286-.085-.57-.245-.812L9.425 8.02c-.295-.45-.813-.722-1.37-.722-.556 0-1.073.272-1.368.72l-2.423 4.996c-.16.244-.244.527-.244.812V47.13h8.074V13.827zm27.895 0c0-.286-.085-.57-.246-.812L37.32 8.02c-.296-.45-.813-.722-1.37-.722-.556 0-1.074.272-1.37.72l-2.423 4.996c-.16.244-.245.527-.245.812V47.13h8.074V13.827h.002z" stroke-width="1.3"/><path d="M31.18 15.615c0-1.935-4.192-14.605-9.544-14.605-5.43 0-9.543 12.926-9.543 14.605v31.517H31.18V15.615z"/><path d="M31.18 15.615c0-1.935-4.192-14.605-9.544-14.605-5.43 0-9.543 12.926-9.543 14.605v31.517H31.18V15.615z" stroke-width="1.3" fill="#FCFCFD"/><path d="M42.202 40.552c-5.62-3.542-10.145-7.95-13.81-13.03-1.016-1.406-1.56-3.07-1.563-4.777v-7.383c0-.275-.08-.544-.233-.79l-2.084-4.23-1.136-2.3c-.29-.46-.81-.743-1.376-.744-.56 0-1.083.283-1.375.743l-1.134 2.3-2.083 4.23c-.147.238-.233.506-.233.79v7.383c.002 1.706-.542 3.372-1.56 4.777-3.665 5.083-8.19 9.49-13.81 13.032-.45.285-.723.766-.723 1.28V45.6c0 .846.722 1.532 1.61 1.532h38.623c.888 0 1.608-.688 1.608-1.532v-3.767c0-.516-.27-.996-.722-1.28" fill="#FFF"/><path d="M42.202 40.552c-5.62-3.542-10.145-7.95-13.81-13.03-1.016-1.406-1.56-3.07-1.563-4.777v-7.383c0-.275-.08-.544-.233-.79l-2.084-4.23-1.136-2.3c-.29-.46-.81-.743-1.376-.744-.56 0-1.083.283-1.375.743l-1.134 2.3-2.083 4.23c-.147.238-.233.506-.233.79v7.383c.002 1.706-.542 3.372-1.56 4.777-3.665 5.083-8.19 9.49-13.81 13.032-.45.285-.723.766-.723 1.28V45.6c0 .846.722 1.532 1.61 1.532h38.623c.888 0 1.608-.688 1.608-1.532v-3.767c0-.516-.27-.996-.722-1.28" stroke-width="1.3" fill="#FCFCFD"/><path d="M42.202 40.552c-5.62-3.542-10.145-7.95-13.81-13.03-1.016-1.406-1.56-3.07-1.563-4.777v-7.383c0-.275-.08-.544-.233-.79l-2.084-4.23-1.136-2.3c-.29-.46-.81-.743-1.376-.744-.56 0-1.083.283-1.375.743l-1.134 2.3-2.083 4.23c-.147.238-.233.506-.233.79v7.383c.002 1.706-.542 3.372-1.56 4.777-3.665 5.083-8.19 9.49-13.81 13.032-.45.285-.723.766-.723 1.28V45.6c0 .846.722 1.532 1.61 1.532h38.623c.888 0 1.608-.688 1.608-1.532v-3.767c0-.516-.27-.996-.722-1.28"/><path d="M29.663 48.064c-.17-.605.052.2-1.322-4.853-.368-1.332-1.674-2.267-3.17-2.267h-1.653c-.354-.888-.842-1.498-1.516-1.498-.673 0-1.162.613-1.516 1.497h-1.65c-1.494 0-2.8.935-3.168 2.268-1.375 5.055-1.154 4.25-1.32 4.853-.126.448-.01.927.3 1.287.302.366.784.576 1.28.576H28.08c.497 0 .98-.21 1.282-.576.31-.36.425-.838.303-1.29" stroke-width="1.3" fill="#FCFCFD"/><path d="M22.004 39.445c-.677 0-1.163.61-1.52 1.497h-1.65c-1.494 0-2.8.935-3.167 2.268-1.376 5.055-1.155 4.25-1.324 4.853-.122.448-.008.927.303 1.287.302.366.783.576 1.28.576h6.078v-10.48zm-.002-27.254c-1.823 0-3.303 1.252-3.303 2.795h6.608c0-1.543-1.48-2.794-3.306-2.794z" stroke-width="1.3" fill="#FCFCFD"/><path d="M29.36 49.39c-.302.343-.784.536-1.282.536h-12.15c-.498 0-.98-.193-1.282-.537-.31-.326-.423-.78-.303-1.202l.107-.357h15.105l.108.358c.12.423.006.876-.303 1.2" stroke-width="1.3" fill="#FCFCFD"/></g></svg>
+      </symbol>
+
+      <symbol id="illu-sync">
+        <svg viewBox="0 0 47 54" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M35.086 28.383c.005-1.986-1.193-3.777-3.03-4.53-1.407-3.478-3.68-4.89-6.463-4.89-2.617 0-4.884 1.505-5.996 3.71-1.77-.76-3.764.504-3.838 2.462-1.665.598-2.773 2.177-2.77 3.945 0 2.313 1.856 4.188 4.144 4.188h13.81s4.14-.777 4.14-4.885"/><path d="M12.187 38.345c-3.593-3.447-5.39-8.255-4.934-13.192.826-8.922 8.798-15.512 17.77-14.69l-.3 3.236 10.363-5.58L25.923.752l-.3 3.236C13.06 2.84 1.9 12.065.743 24.557c-.64 6.91 1.878 13.64 6.905 18.464l4.54-4.677zm22.405-23.16c3.592 3.447 5.39 8.256 4.934 13.192-.826 8.922-8.798 15.513-17.77 14.69l.3-3.236-10.363 5.58 9.163 7.367.3-3.236c12.562 1.15 23.723-8.075 24.88-20.566.64-6.91-1.878-13.64-6.905-18.465l-4.537 4.676z"/></g></svg>
+      </symbol>
+
+      <symbol id="illu-autocomplete">
+        <svg viewBox="0 0 44 46" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M10.018 39.582s2.455-6.757-1.583-11.316c-.22-.25-.218-.624.006-.87 1.396-1.524 3.87-1.492 7.427 5.033.93 1.7 2.865 1.61 4.55.65 3.2-1.83 7.822-7.658 12.67-6.24.22.066.39.242.447.464.057.223-.008.46-.17.62l-16.848 16.86-6.498-5.202z"/><path d="M42.508 25.926c0 .36-.29.65-.65.65H1.57c-.36 0-.65-.29-.65-.65v-1.3c0-.36.29-.65.65-.65h40.288c.36 0 .65.29.65.65v1.3zM21.714 3.767c.677 0 1.322.03 1.95.075V1.817c0-.36-.29-.65-.65-.65h-2.6c-.36 0-.65.29-.65.65v2.025c.65-.048 1.3-.073 1.95-.075"/><path d="M3.52 21.975S2.87 3.767 21.714 3.767c18.845 0 18.195 18.208 18.195 18.208M13.615 42.46l3.28 2.974H1.223l8.322-6.662.57.516c.41-1.346 1.858-7.027-1.68-11.022-.22-.25-.218-.624.006-.87 1.396-1.524 3.87-1.492 7.427 5.033.93 1.7 2.865 1.61 4.55.65 3.2-1.83 7.822-7.658 12.67-6.24.22.066.39.242.447.464.057.223-.008.46-.17.62l-16.848 16.86-2.9-2.323z"/></g></svg>
+      </symbol>
+    </defs>
+  </svg>
+</body>
+
+</html>
